@@ -1,0 +1,5 @@
+Exercicio 1 - Respostas:
+cd ..
+cd ../..
+cd ../../../etc/default/
+
