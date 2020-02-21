@@ -4,5 +4,31 @@ Exercicio 1 - Respostas:
 cd ..
 cd ../..
 cd ../../../etc/default/
+cd ../../../usr/share/doc/
+cd ../../../usr/share/doc/python/faq
+cd ../../../usr/lib/ubuntu-mate
+cd ../../../usr/local/etc
+cd ../../../usr/local/man
+cd ../../../usr/local/lib/python2.7
+cd ../../../usr/local/lib/python2.7/site-packages
+cd ../../../usr/local/lib/python2.7/dist-packages
+cd ../../../home/aluno
+cd ../../../home/aluno/Downloads
+
+Exercicio 2 - Respostas:
+/home/aluno/Imagens
+/home/aluno/Documentos
+/home
+/boot
+/boot/grub
+/usr/lib
+/usr/share
+/usr/local
+/usr/local/lib/python2.7
+/usr/local
+/etc
+/lib/modules
+/home
+/home/aluno/Downloads
 
 
