@@ -1,0 +1,197 @@
+https://wiki.sj.ifsc.edu.br/index.php/PJI2-2020-1
+
+Exercicio 1 - Respostas:
+cd ..
+cd ../..
+cd ../../../etc/default/
+cd ../../../usr/share/doc/
+cd ../../../usr/share/doc/python/faq
+cd ../../../usr/lib/ubuntu-mate
+cd ../../../usr/local/etc
+cd ../../../usr/local/man
+cd ../../../usr/local/lib/python2.7
+cd ../../../usr/local/lib/python2.7/site-packages
+cd ../../../usr/local/lib/python2.7/dist-packages
+cd ../../../home/aluno
+cd ../../../home/aluno/Downloads
+
+Exercicio 2 antigo - Respostas:
+/home/aluno/Imagens
+/home/aluno/Documentos
+/home
+/boot
+/boot/grub
+/usr/lib
+/usr/share
+/usr/local
+/usr/local/lib/python2.7
+/usr/local
+/etc
+/lib/modules
+/home
+/home/aluno/Downloads
+
+Exercicio 2 - Respostas:
+aluno@aluno-VirtualBox:~/Downloads/arquivos_gerais$
+
+mv *.doc *.odt *.pdf ../../Documentos/
+mv *mp4 ../../Vídeos/
+mv *jpeg ../../Imagens/
+mv *mp3 ../../Música/
+
+Exercicio 3 - Respostas:
+aluno@aluno-VirtualBox:~/Downloads/
+
+rm arquivos_gerais.tar.gz 
+rm -r arquivos_gerais/
+
+Exercicio 4 - Respostas:
+
+aluno@aluno-VirtualBox:~/Imagens$ mv download.jpeg trapiche.jpeg
+aluno@aluno-VirtualBox:~/Imagens$ mv paisagem2.jpeg rosas.jpeg
+aluno@aluno-VirtualBox:~/Imagens$ mv Paisagem1.jpeg solnascer.jpeg
+aluno@aluno-VirtualBox:~/Imagens$ mv linux2.jpeg linux.jpeg
+aluno@aluno-VirtualBox:~/Imagens$ mv Linux1.jpeg pinguim.jpeg
+aluno@aluno-VirtualBox:~/Imagens$ mv telecomunicacoes1.jpeg netglobo.jpeg
+aluno@aluno-VirtualBox:~/Imagens$ mv telecomunicacoes2.jpeg network.jpeg
+
+Exercicio 5 - Respostas:
+
+aluno@aluno-VirtualBox:~$ mkdir Ubuntu_Stereo_Sounds
+aluno@aluno-VirtualBox:~$ cp /usr/share/sounds/ubuntu/stereo/* Ubuntu_Stereo_Sounds/
+aluno@aluno-VirtualBox:~$ cd Ubuntu_Stereo_Sounds/
+aluno@aluno-VirtualBox:~/Ubuntu_Stereo_Sounds$ play bell.ogg 
+
+Exercicio 6 - Respostas:
+
+aluno@aluno-VirtualBox:~/Ubuntu_Stereo_Sounds$ find /usr -name lsusb
+/usr/bin/lsusb
+/usr/share/bash-completion/completions/lsusb
+
+Exercicio 7 - Respostas:
+
+aluno@aluno-VirtualBox:~/Ubuntu_Stereo_Sounds$ find /usr -name lib -type d
+/usr/src/linux-headers-4.15.0-88-generic/tools/objtool/arch/x86/lib
+/usr/src/linux-headers-4.15.0-88-generic/include/config/rt2800/lib
+/usr/src/linux-headers-4.15.0-88-generic/include/config/rt2x00/lib
+/usr/src/linux-headers-4.15.0-88-generic/include/config/ceph/lib
+/usr/src/linux-headers-4.15.0-88-generic/include/config/snd/opl3/lib
+/usr/src/linux-headers-4.15.0-88-generic/include/config/iio/adis/lib
+/usr/src/linux-headers-4.15.0-29/spl/lib
+/usr/src/linux-headers-4.15.0-29/tools/testing/selftests/lib
+/usr/src/linux-headers-4.15.0-29/tools/perf/tests/shell/lib
+/usr/src/linux-headers-4.15.0-29/tools/lib
+/usr/src/linux-headers-4.15.0-29/virt/lib
+/usr/src/linux-headers-4.15.0-29/arch/unicore32/lib
+/usr/src/linux-headers-4.15.0-29/arch/tile/lib
+/usr/src/linux-headers-4.15.0-29/arch/arc/lib
+/usr/src/linux-headers-4.15.0-29/arch/openrisc/lib
+/usr/src/linux-headers-4.15.0-29/arch/mn10300/lib
+/usr/src/linux-headers-4.15.0-29/arch/sh/lib
+/usr/src/linux-headers-4.15.0-29/arch/cris/arch-v10/lib
+/usr/src/linux-headers-4.15.0-29/arch/cris/arch-v32/lib
+/usr/src/linux-headers-4.15.0-29/arch/score/lib
+/usr/src/linux-headers-4.15.0-29/arch/xtensa/boot/lib
+/usr/src/linux-headers-4.15.0-29/arch/xtensa/lib
+/usr/src/linux-headers-4.15.0-29/arch/m32r/lib
+/usr/src/linux-headers-4.15.0-29/arch/nios2/lib
+/usr/src/linux-headers-4.15.0-29/arch/s390/lib
+/usr/src/linux-headers-4.15.0-29/arch/sparc/lib
+/usr/src/linux-headers-4.15.0-29/arch/mips/fw/lib
+/usr/src/linux-headers-4.15.0-29/arch/mips/lib
+/usr/src/linux-headers-4.15.0-29/arch/microblaze/lib
+/usr/src/linux-headers-4.15.0-29/arch/arm64/lib
+/usr/src/linux-headers-4.15.0-29/arch/c6x/lib
+/usr/src/linux-headers-4.15.0-29/arch/alpha/lib
+/usr/src/linux-headers-4.15.0-29/arch/arm/lib
+/usr/src/linux-headers-4.15.0-29/arch/hexagon/lib
+/usr/src/linux-headers-4.15.0-29/arch/frv/lib
+/usr/src/linux-headers-4.15.0-29/arch/ia64/lib
+/usr/src/linux-headers-4.15.0-29/arch/x86/lib
+/usr/src/linux-headers-4.15.0-29/arch/blackfin/lib
+/usr/src/linux-headers-4.15.0-29/arch/h8300/lib
+/usr/src/linux-headers-4.15.0-29/arch/riscv/lib
+/usr/src/linux-headers-4.15.0-29/arch/m68k/lib
+/usr/src/linux-headers-4.15.0-29/arch/powerpc/lib
+/usr/src/linux-headers-4.15.0-29/arch/parisc/lib
+/usr/src/linux-headers-4.15.0-29/arch/metag/lib
+/usr/src/linux-headers-4.15.0-29/lib
+/usr/src/linux-headers-4.15.0-29/drivers/net/ethernet/mellanox/mlx5/core/lib
+/usr/src/linux-headers-4.15.0-29/drivers/gpu/drm/amd/lib
+/usr/src/linux-headers-4.15.0-88/tools/testing/selftests/lib
+/usr/src/linux-headers-4.15.0-88/tools/perf/tests/shell/lib
+/usr/src/linux-headers-4.15.0-88/tools/lib
+/usr/src/linux-headers-4.15.0-88/virt/lib
+/usr/src/linux-headers-4.15.0-88/arch/unicore32/lib
+/usr/src/linux-headers-4.15.0-88/arch/tile/lib
+/usr/src/linux-headers-4.15.0-88/arch/arc/lib
+/usr/src/linux-headers-4.15.0-88/arch/openrisc/lib
+/usr/src/linux-headers-4.15.0-88/arch/mn10300/lib
+/usr/src/linux-headers-4.15.0-88/arch/sh/lib
+/usr/src/linux-headers-4.15.0-88/arch/cris/arch-v10/lib
+/usr/src/linux-headers-4.15.0-88/arch/cris/arch-v32/lib
+/usr/src/linux-headers-4.15.0-88/arch/score/lib
+/usr/src/linux-headers-4.15.0-88/arch/xtensa/boot/lib
+/usr/src/linux-headers-4.15.0-88/arch/xtensa/lib
+/usr/src/linux-headers-4.15.0-88/arch/m32r/lib
+/usr/src/linux-headers-4.15.0-88/arch/nios2/lib
+/usr/src/linux-headers-4.15.0-88/arch/s390/lib
+/usr/src/linux-headers-4.15.0-88/arch/sparc/lib
+/usr/src/linux-headers-4.15.0-88/arch/mips/fw/lib
+/usr/src/linux-headers-4.15.0-88/arch/mips/lib
+/usr/src/linux-headers-4.15.0-88/arch/microblaze/lib
+/usr/src/linux-headers-4.15.0-88/arch/arm64/lib
+/usr/src/linux-headers-4.15.0-88/arch/c6x/lib
+/usr/src/linux-headers-4.15.0-88/arch/alpha/lib
+/usr/src/linux-headers-4.15.0-88/arch/arm/lib
+/usr/src/linux-headers-4.15.0-88/arch/hexagon/lib
+/usr/src/linux-headers-4.15.0-88/arch/frv/lib
+/usr/src/linux-headers-4.15.0-88/arch/ia64/lib
+/usr/src/linux-headers-4.15.0-88/arch/x86/lib
+/usr/src/linux-headers-4.15.0-88/arch/blackfin/lib
+/usr/src/linux-headers-4.15.0-88/arch/h8300/lib
+/usr/src/linux-headers-4.15.0-88/arch/riscv/lib
+/usr/src/linux-headers-4.15.0-88/arch/m68k/lib
+/usr/src/linux-headers-4.15.0-88/arch/powerpc/lib
+/usr/src/linux-headers-4.15.0-88/arch/parisc/lib
+/usr/src/linux-headers-4.15.0-88/arch/metag/lib
+/usr/src/linux-headers-4.15.0-88/lib
+/usr/src/linux-headers-4.15.0-88/drivers/net/ethernet/mellanox/mlx5/core/lib
+/usr/src/linux-headers-4.15.0-88/drivers/gpu/drm/amd/lib
+/usr/src/linux-headers-4.15.0-29-generic/tools/objtool/arch/x86/lib
+/usr/src/linux-headers-4.15.0-29-generic/include/config/rt2800/lib
+/usr/src/linux-headers-4.15.0-29-generic/include/config/rt2x00/lib
+/usr/src/linux-headers-4.15.0-29-generic/include/config/ceph/lib
+/usr/src/linux-headers-4.15.0-29-generic/include/config/snd/opl3/lib
+/usr/src/linux-headers-4.15.0-29-generic/include/config/iio/adis/lib
+/usr/lib
+/usr/lib/x86_64-linux-gnu/perl-base/unicore/lib
+/usr/lib/debug/usr/lib
+/usr/lib/debug/lib
+/usr/lib/python3/dist-packages/reportlab/lib
+/usr/local/lib
+/usr/share/perl/5.26.1/unicore/lib
+/usr/share/ghostscript/9.26/lib
+/usr/share/gdb/auto-load/usr/lib
+/usr/share/doc/gawk/examples/lib
+
+Exercicio 8 - Respostas:
+
+aluno@aluno-VirtualBox:~/Ubuntu_Stereo_Sounds$ find /lib -type f
+
+Exercicio 9 - Respostas:
+
+aluno@aluno-VirtualBox:~/Ubuntu_Stereo_Sounds$ find /tmp -user aluno
+/tmp/ssh-zLno16zCpedJ
+/tmp/ssh-zLno16zCpedJ/agent.1621
+find: ‘/tmp/systemd-private-ffaffdcedf8840c7ae519cdf9cbe235d-rtkit-daemon.service-v9W2bh’: Permissão negada
+/tmp/config-err-8G1iSS
+/tmp/mozilla_aluno0
+/tmp/.ICE-unix/1621
+/tmp/Temp-b68cd3ef-ad72-4604-a9c5-1fc55927be45
+find: ‘/tmp/systemd-private-ffaffdcedf8840c7ae519cdf9cbe235d-systemd-resolved.service-WcP7Se’: Permissão negada
+/tmp/Temp-4413aee9-0505-4678-9851-87982ac98e55
+
+
+
+
