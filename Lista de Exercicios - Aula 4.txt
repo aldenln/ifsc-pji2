@@ -1,0 +1,130 @@
+-Exercícios Extras 1:
+
+aluno@aluno-VirtualBox:~/Ubuntu_Stereo_Sounds$ cd ~
+aluno@aluno-VirtualBox:~$ mkdir exercicios_extras
+aluno@aluno-VirtualBox:~$ mkdir exercicios_extras/Brasil
+aluno@aluno-VirtualBox:~$ mkdir exercicios_extras/Brasil/regiaoNorte
+aluno@aluno-VirtualBox:~$ mkdir exercicios_extras/Brasil/regiaoNorte/Amazonas
+aluno@aluno-VirtualBox:~$ mkdir exercicios_extras/Brasil/regiaoNorte/Acre
+aluno@aluno-VirtualBox:~$ mkdir exercicios_extras/Brasil/regiaoSul
+aluno@aluno-VirtualBox:~$ mkdir exercicios_extras/Brasil/regiaoSul/Parana
+aluno@aluno-VirtualBox:~$ mkdir exercicios_extras/Brasil/regiaoSul/SantaCatarinaaluno@aluno-VirtualBox:~$ 
+
+
+-Exercícios Extras 2:
+
+aluno@aluno-VirtualBox:~$ cd exercicios_extras/Brasil/regiaoNorte/
+
+
+-Exercícios Extras 3:
+
+aluno@aluno-VirtualBox:~/exercicios_extras/Brasil/regiaoNorte$ ls -lua
+total 16
+drwxr-xr-x 4 aluno aluno 4096 fev 21 21:43 .
+drwxr-xr-x 4 aluno aluno 4096 fev 21 21:42 ..
+drwxr-xr-x 2 aluno aluno 4096 fev 21 21:39 Acre
+drwxr-xr-x 2 aluno aluno 4096 fev 21 21:39 Amazonas
+
+
+-Exercícios Extras 4:
+
+aluno@aluno-VirtualBox:~/exercicios_extras/Brasil/regiaoNorte$ cp -r Amazonas Para
+
+
+-Exercícios Extras 5:
+
+aluno@aluno-VirtualBox:~/exercicios_extras/Brasil/regiaoNorte$ ls -lua
+total 20
+drwxr-xr-x 5 aluno aluno 4096 fev 21 21:46 .
+drwxr-xr-x 4 aluno aluno 4096 fev 21 21:42 ..
+drwxr-xr-x 2 aluno aluno 4096 fev 21 21:39 Acre
+drwxr-xr-x 2 aluno aluno 4096 fev 21 21:46 Amazonas
+drwxr-xr-x 2 aluno aluno 4096 fev 21 21:46 Para
+
+
+-Exercícios Extras 6:
+
+aluno@aluno-VirtualBox:~/exercicios_extras/Brasil/regiaoNorte$ cd ../regiaoSul/
+aluno@aluno-VirtualBox:~/exercicios_extras/Brasil/regiaoSul$ cp -r Parana RioGrandeDoSul
+
+
+-Exercícios Extras 7:
+
+aluno@aluno-VirtualBox:~/exercicios_extras/Brasil/regiaoSul$ ls -lua
+total 20
+drwxr-xr-x 5 aluno aluno 4096 fev 21 21:51 .
+drwxr-xr-x 4 aluno aluno 4096 fev 21 21:42 ..
+drwxr-xr-x 2 aluno aluno 4096 fev 21 21:50 Parana
+drwxr-xr-x 2 aluno aluno 4096 fev 21 21:50 RioGrandeDoSul
+drwxr-xr-x 2 aluno aluno 4096 fev 21 21:40 SantaCatarina
+
+
+-Exercícios Extras 8:
+
+cd ~
+
+-Exercícios Extras 9:
+
+aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoNorte/Amazonas/Manaus.txt
+
+
+-Exercícios Extras 10:
+
+-Exercícios Extras 11:
+
+-Exercícios Extras 12:
+
+-Exercícios Extras 13:
+
+-Exercícios Extras 14:
+
+-Exercícios Extras 15:
+
+-Exercícios Extras 16:
+
+-Exercícios Extras 17:
+
+-Exercícios Extras 18:
+
+-Exercícios Extras 19:
+
+-Exercícios Extras 20:
+
+-Exercícios Extras 21:
+
+-Exercícios Extras 22:
+
+-Exercícios Extras 23:
+
+-Exercícios Extras 24:
+
+-Exercícios Extras 25:
+
+-Exercícios Extras 26:
+
+-Exercícios Extras 27:
+
+-Exercícios Extras 28:
+
+-Exercícios Extras 29:
+
+-Exercícios Extras 30:
+
+-Exercícios Extras 1:
+
+-Exercícios Extras 1:
+
+-Exercícios Extras 1:
+
+-Exercícios Extras 1:
+
+-Exercícios Extras 1:
+
+-Exercícios Extras 1:
+
+-Exercícios Extras 1:
+
+-Exercícios Extras 1:
+
+-Exercícios Extras 1:
+
