@@ -80,57 +80,158 @@ aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoNorte/Acre/Rio_br
 
 -Exercícios Extras 12:
 
+aluno@aluno-VirtualBox:~$ find exercicios_extras/Brasil/regiaoNorte/ -type f -name *.txt
+exercicios_extras/Brasil/regiaoNorte/Amazonas/Manaus.txt
+exercicios_extras/Brasil/regiaoNorte/Acre/Rio_branco.txt
+exercicios_extras/Brasil/regiaoNorte/Para/Belem.txt
+
+
 -Exercícios Extras 13:
+
+aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoSul/Parana/Curitiba.txt
+
 
 -Exercícios Extras 14:
 
+aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoSul/SantaCatarina/Florianopolis.pdf
+
+
 -Exercícios Extras 15:
+
+aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoSul/SantaCatarina/Chapeco.odt
+
 
 -Exercícios Extras 16:
 
+aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoSul/Parana/FranciscoBeltrao.doc
+
+
 -Exercícios Extras 17:
+
+aluno@aluno-VirtualBox:~$ cd exercicios_extras/
+aluno@aluno-VirtualBox:~/exercicios_extras$ find -type f -name C*
+./Brasil/regiaoSul/SantaCatarina/Chapeco.odt
+./Brasil/regiaoSul/Parana/Curitiba.txt
+
 
 -Exercícios Extras 18:
 
+aluno@aluno-VirtualBox:~/exercicios_extras$ find -type f -name F*
+./Brasil/regiaoSul/SantaCatarina/Florianopolis.pdf
+./Brasil/regiaoSul/Parana/FranciscoBeltrao.doc
+
+
 -Exercícios Extras 19:
+
+aluno@aluno-VirtualBox:~/exercicios_extras$ mkdir aula1 aula2
+
 
 -Exercícios Extras 20:
 
+aluno@aluno-VirtualBox:~/exercicios_extras$ mkdir aula1/aula11 aula1/aula12 aula1/aula13 aula2/aula21 aula2/aula22 aula2/aula23
+
+
 -Exercícios Extras 21:
+
+aluno@aluno-VirtualBox:~/exercicios_extras$ rmdir aula1/aula13 aula2/aula23
+
 
 -Exercícios Extras 22:
 
+aluno@aluno-VirtualBox:~/exercicios_extras$ touch aula1/aula12/texto1 
+
+
 -Exercícios Extras 23:
+
+aluno@aluno-VirtualBox:~/exercicios_extras$ cp aula1/aula12/texto1 aula2/aula22
+
 
 -Exercícios Extras 24:
 
+aluno@aluno-VirtualBox:~/exercicios_extras$ mv aula1/aula12/texto1 aula1/aula11
+
+
 -Exercícios Extras 25:
+
+aluno@aluno-VirtualBox:~/exercicios_extras$ cp /etc/passwd aula2
+
 
 -Exercícios Extras 26:
 
+aluno@aluno-VirtualBox:~/exercicios_extras$ cp /etc/protocols aula1
+
+
 -Exercícios Extras 27:
+
+aluno@aluno-VirtualBox:~/exercicios_extras$ rm aula1/aula11/texto1 
+
 
 -Exercícios Extras 28:
 
+aluno@aluno-VirtualBox:~$ find -type d -name *aula*
+./exercicios_extras/aula1
+./exercicios_extras/aula1/aula11
+./exercicios_extras/aula1/aula12
+./exercicios_extras/aula2
+./exercicios_extras/aula2/aula21
+./exercicios_extras/aula2/aula22
+
+
 -Exercícios Extras 29:
+
+aluno@aluno-VirtualBox:~$ touch exercicios_extras/aula2/aula22/trabalho1 exercicios_extras/aula2/aula22/trabalho2 exercicios_extras/aula2/aula22/trabalho3 exercicios_extras/aula2/aula22/teste1 exercicios_extras/aula2/aula22/teste2 exercicios_extras/aula2/aula22/exame1 exercicios_extras/aula2/aula22/exame2 exercicios_extras/aula2/aula22/texto1 exercicios_extras/aula2/aula22/texto3 exercicios_extras/aula2/aula22/notas exercicios_extras/aula2/aula22/anotações
+
 
 -Exercícios Extras 30:
 
--Exercícios Extras 1:
+aluno@aluno-VirtualBox:~$ find exercicios_extras/aula2/aula22 -type f -name t*
+exercicios_extras/aula2/aula22/teste2
+exercicios_extras/aula2/aula22/texto1
+exercicios_extras/aula2/aula22/trabalho2
+exercicios_extras/aula2/aula22/trabalho3
+exercicios_extras/aula2/aula22/texto3
+exercicios_extras/aula2/aula22/trabalho1
+exercicios_extras/aula2/aula22/teste1
 
--Exercícios Extras 1:
 
--Exercícios Extras 1:
+-Exercícios Extras 31:
 
--Exercícios Extras 1:
+aluno@aluno-VirtualBox:~$ find exercicios_extras/aula2/aula22 -type f -name '??a*'
+exercicios_extras/aula2/aula22/trabalho2
+exercicios_extras/aula2/aula22/trabalho3
+exercicios_extras/aula2/aula22/exame2
+exercicios_extras/aula2/aula22/trabalho1
+exercicios_extras/aula2/aula22/exame1
 
--Exercícios Extras 1:
 
--Exercícios Extras 1:
+-Exercícios Extras 32:
 
--Exercícios Extras 1:
+aluno@aluno-VirtualBox:~$ find exercicios_extras/aula2/aula22 -type f -name *2
+exercicios_extras/aula2/aula22/teste2
+exercicios_extras/aula2/aula22/trabalho2
+exercicios_extras/aula2/aula22/exame2
 
--Exercícios Extras 1:
 
--Exercícios Extras 1:
+-Exercícios Extras 33:
 
+aluno@aluno-VirtualBox:~$ find exercicios_extras/aula2/aula22 -type f -name *nota*
+exercicios_extras/aula2/aula22/notas
+exercicios_extras/aula2/aula22/anotações
+
+
+-Exercícios Extras 34:
+
+aluno@aluno-VirtualBox:~$ find exercicios_extras/aula2/aula22 -type f -name *x*
+
+
+-Exercícios Extras 35:
+
+aluno@aluno-VirtualBox:~$ cp exercicios_extras/aula2/aula22/trabalho* exercicios_extras/aula1/aula11
+
+
+-Exercícios Extras 36:
+
+aluno@aluno-VirtualBox:~$ mv exercicios_extras/aula2/aula22/exame* exercicios_extras/aula2/aula21
+
+
+FIM
