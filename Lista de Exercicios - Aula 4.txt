@@ -70,7 +70,13 @@ aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoNorte/Amazonas/Ma
 
 -Exercícios Extras 10:
 
+aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoNorte/Para/Belem.txt 
+
+
 -Exercícios Extras 11:
+
+aluno@aluno-VirtualBox:~$ touch exercicios_extras/Brasil/regiaoNorte/Acre/Rio_branco.txt
+
 
 -Exercícios Extras 12:
 
