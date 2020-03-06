@@ -1,1 +1,381 @@
 
+1. Crie um usuário com o nome de jose usando o comando adduser.
+
+aluno@aluno-VirtualBox:~$ sudo adduser jose
+Adicionando o usuário `jose' ...
+Adicionando novo grupo 'jose' (1002) ...
+Adicionando novo usuário `jose' (1002) ao grupo `jose' ...
+Criando diretório pessoal `/home/jose' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para jose
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] s
+
+
+2. Dê ao usuário jose a senha jose123.
+
+aluno@aluno-VirtualBox:~$ sudo passwd jose
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+
+
+3. Confirme a correta criação do usuário jose: 
+
+aluno@aluno-VirtualBox:~$ tail /etc/passwd
+pulse:x:116:122:PulseAudio daemon,,,:/var/run/pulse:/usr/sbin/nologin
+nm-openvpn:x:117:124:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+avahi:x:118:125:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/usr/sbin/nologin
+colord:x:119:126:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+hplip:x:120:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+geoclue:x:121:127::/var/lib/geoclue:/usr/sbin/nologin
+aluno:x:1000:1000:Aluno,,,:/home/aluno:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+joao:x:1001:1000:Joao da Silva, IFSC:/home/joao:/bin/bash
+jose:x:1002:1002:,,,:/home/jose:/bin/bash
+
+aluno@aluno-VirtualBox:~$ id jose
+uid=1002(jose) gid=1002(jose) grupos=1002(jose)
+
+4. Confirme se o diretório home de jose foi criado corretamente dentro de /home.
+
+aluno@aluno-VirtualBox:~$ ls -lua /home
+total 24
+drwxr-xr-x  6 root  root  4096 mar  6 19:51 .
+drwxr-xr-x 24 root  root  4096 mar  6 19:30 ..
+drwxr-xr-x 20 aluno aluno 4096 mar  6 19:31 aluno
+drwxr-xr-x  2 joao  aluno 4096 mar  3 21:42 joao
+drwxr-xr-x  3 jose  jose  4096 mar  6 19:34 jose
+drwxr-xr-x  2 root  root  4096 mar  6 19:42 manoel
+
+
+5. Logue utilizando o usuário jose.
+
+aluno@aluno-VirtualBox:~$ su - jose
+Senha: 
+jose@aluno-VirtualBox:~$ 
+
+
+6. Crie o grupo turma.Certifique-se que o grupo foi criado.
+
+jose@aluno-VirtualBox:~$ addgroup turma
+Comando 'addgroup' está disponível em '/usr/sbin/addgroup'
+O comando não foi localizado porque '/usr/sbin' não está incluído na variável de ambiente PATH.
+Isso provavelmente se deve à falta de privilégios administrativos associados à sua conta de usuário.
+addgroup: comando não encontrado
+jose@aluno-VirtualBox:~$ exit
+sair
+
+aluno@aluno-VirtualBox:~$ sudo addgroup turma
+Adicionando grupo `turma' (GID 1003) ...
+Concluído.
+
+
+7. Crie o diretório manoel em /home.
+
+aluno@aluno-VirtualBox:~$ sudo mkdir /home/manoel
+
+
+8. Crie um usuário com o nome de manoel usando o comando useradd. Deve-se ao criar o usuário definir os seguintes parâmetros:
+
+    -Pertencer ao grupo turma;
+    -O diretório home deve ser /home/manoel;
+    -Configurar o shell do usuário como sendo /bin/bash;
+    -Observar qual a diferença entre os comandos adduser e useradd.
+
+     useradd -g turma -d /home/manoel -s /bin/bash manoel
+
+aluno@aluno-VirtualBox:~$ sudo useradd -g turma -d /home/manoel -s /bin/bash manoel
+
+9. Dê ao usuário manoel a senha mane123. 
+
+aluno@aluno-VirtualBox:~$ sudo passwd manoel
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+
+
+10. Acrescente, por comandos, ao perfil do usuário seu nome completo e endereço: Manoel da Silva, R. dos Pinheiros, 2476666. 
+
+aluno@aluno-VirtualBox:~$ sudo usermod -c "Manoel da Silva, R. dos Pinheiros, 2476666" manoel
+
+
+11. Verifique o arquivo /etc/passwd e confirme se o usuário manoel está OK.
+
+aluno@aluno-VirtualBox:~$ cat /etc/passwd | grep manoel
+manoel:x:1003:1003:Manoel da Silva, R. dos Pinheiros, 2476666:/home/manoel:/bin/bash
+
+
+12. Mude, por comandos, o diretório home do manoel de /home/manoel para /home/contas/manoel. 
+
+aluno@aluno-VirtualBox:~$ sudo usermod -d /home/contas/manoel manoel
+
+
+13. Verifique o arquivo /etc/passwd e confirme a alteração.
+
+aluno@aluno-VirtualBox:~$ cat /etc/passwd | grep manoel
+manoel:x:1003:1003:Manoel da Silva, R. dos Pinheiros, 2476666:/home/contas/manoel:/bin/bash
+
+
+14. Logue como manoel e verifique as mensagens na tela. 
+
+aluno@aluno-VirtualBox:~$ login manoel
+login: talvez não seja possível trabalhar sem o root efetivamente
+
+aluno@aluno-VirtualBox:~$ su - manoel
+Senha: 
+Sem diretório, logando com HOME=/
+manoel@aluno-VirtualBox:/$ exit
+sair
+aluno@aluno-VirtualBox:~$ sudo passwd manoel
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+Sorry, passwords do not match
+passwd : Erro de manipulação de token de autenticação
+passwd: senha inalterada
+aluno@aluno-VirtualBox:~$ sudo login manoel
+Senha: 
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-88-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+246 pacotes podem ser atualizados.
+8 atualizações são atualizações de segurança.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Sem diretório, logando com HOME=/
+manoel@aluno-VirtualBox:/$ exit
+sair
+aluno@aluno-VirtualBox:~$ sudo login manoel
+Senha: 
+Último login: sex mar  6 20:04:26 -03 2020 em pts/0
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-88-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+246 pacotes podem ser atualizados.
+8 atualizações são atualizações de segurança.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Sem diretório, logando com HOME=/
+manoel@aluno-VirtualBox:/$ 
+
+
+15. Crie o diretório /home/contas e dentro de contas crie o diretório manoel. Tente logar novamente.
+
+aluno@aluno-VirtualBox:~$ sudo mkdir /home/contas/manoel
+mkdir: não foi possível criar o diretório “/home/contas/manoel”: Arquivo ou diretório inexistente
+aluno@aluno-VirtualBox:~$ sudo mkdir /home/contas
+aluno@aluno-VirtualBox:~$ sudo mkdir /home/contas/manoel
+
+
+aluno@aluno-VirtualBox:~$ sudo login manoel
+Senha: 
+Último login: sex mar  6 20:04:41 -03 2020 em pts/0
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-88-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+246 pacotes podem ser atualizados.
+8 atualizações são atualizações de segurança.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+manoel@aluno-VirtualBox:~$ 
+manoel@aluno-VirtualBox:~$ pwd
+/home/contas/manoel
+
+
+16. Mude o login do manoel para manoelsilva. 
+
+manoel@aluno-VirtualBox:~$ exit
+sair
+aluno@aluno-VirtualBox:~$  usermod -l manoelsilva manoel
+usermod: Permission denied.
+usermod: não foi possível travar /etc/passwd; tente novamente mais tarde.
+aluno@aluno-VirtualBox:~$ sudo usermod -l manoelsilva manoel
+aluno@aluno-VirtualBox:~$ cat /etc/passwd | grep manoelsilva
+manoelsilva:x:1003:1003:Manoel da Silva, R. dos Pinheiros, 2476666:/home/contas/manoel:/bin/bash
+
+
+17. Logue como manoelsilva
+
+aluno@aluno-VirtualBox:~$ sudo login manoelsilva
+Senha: 
+Último login: sex mar  6 20:08:16 -03 2020 em pts/0
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-88-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+246 pacotes podem ser atualizados.
+8 atualizações são atualizações de segurança.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+manoelsilva@aluno-VirtualBox:~$ 
+
+18. Estando logado como manoelsilva, remova o usuário jose.
+
+Impossível, o usuário não tem permissão para tal.
+
+manoelsilva@aluno-VirtualBox:~$ deluser jose
+/usr/sbin/deluser: Somente root pode remover um usuário ou grupo do sistema.
+manoelsilva@aluno-VirtualBox:~$ sudo deluser jose
+[sudo] senha para manoelsilva: 
+manoelsilva não está no arquivo sudoers. Este incidente será relatado.
+
+
+19. Deslogue de manoelsilva
+
+manoelsilva@aluno-VirtualBox:~$ exit
+sair
+aluno@aluno-VirtualBox:~$ 
+
+
+20. Remova os usuários criados, inclusive seus diretórios home
+
+aluno@aluno-VirtualBox:~$ sudo deluser jose
+Removendo o usuário `jose' ...
+Alerta: o grupo 'jose' não tem mais membros.
+Concluído.
+aluno@aluno-VirtualBox:~$ sudo deluser manoelsilva
+Removendo o usuário `manoelsilva' ...
+Alerta: o grupo 'turma' não tem mais membros.
+Concluído.
+aluno@aluno-VirtualBox:~$ 
+
+aluno@aluno-VirtualBox:~$ ls -lua /home/
+total 32
+drwxr-xr-x  8 root  root  4096 mar  6 20:15 .
+drwxr-xr-x 24 root  root  4096 mar  6 19:30 ..
+drwxr-xr-x 37 aluno aluno 4096 mar  6 20:15 aluno
+drwxr-xr-x  3 root  root  4096 mar  6 20:07 contas
+drwxr-xr-x  2 joao  aluno 4096 mar  3 21:42 joao
+drwxr-xr-x  3  1002  1002 4096 mar  6 19:34 jose
+drwxr-xr-x  2 root  root  4096 mar  6 19:42 manoel
+drwxr-xr-x  2 root  root  4096 mar  6 19:55 manoelCrie
+aluno@aluno-VirtualBox:~$ sudo rm -r /home/manoel
+aluno@aluno-VirtualBox:~$ sudo rm -r /home/jose/
+aluno@aluno-VirtualBox:~$ sudo rm -r /home/manoelCrie/
+aluno@aluno-VirtualBox:~$ sudo rm -r /home/manoelCrie/
+aluno@aluno-VirtualBox:~$ sudo rm -r /home/contas/
+
+aluno@aluno-VirtualBox:~$ ls -lua /home/
+total 16
+drwxr-xr-x  4 root  root  4096 mar  6 20:17 .
+drwxr-xr-x 24 root  root  4096 mar  6 19:30 ..
+drwxr-xr-x 37 aluno aluno 4096 mar  6 20:15 aluno
+drwxr-xr-x  2 joao  aluno 4096 mar  3 21:42 joao
+
+
+21. Remova os grupos criados
+
+aluno@aluno-VirtualBox:~$ cat /etc/group
+
+(...)
+turma:x:1003:
+
+aluno@aluno-VirtualBox:~$ sudo delgroup turma
+Removendo o grupo `turma' ...
+Concluído.
+aluno@aluno-VirtualBox:~$ 
+
+
+
+FIM
+
+
