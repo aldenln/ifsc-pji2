@@ -1,1 +1,96 @@
 
+1. Crie a partir do /home 3 diretórios, um com nome aln, outro prf e o último svd.
+
+
+
+2. Crie 3 grupos com os mesmos nomes acima.
+
+
+
+3. Crie 3 contas de usuários pertencentes ao grupo aln: aluno1, aluno2, aluno3. Estas contas deverão ter seus diretórios homes criados por comando dentro do diretório /home/aln/. Por exemplo para o aluno1 teremos /home/aln/aluno1. Configure a shell dos usuários como /bin/bash.
+
+
+
+4. Crie 3 contas pertencentes ao grupo prf: prof1, prof2, prof3. Estas contas deverão ter seus diretórios homes criados por comando dentro do diretório /home/prf/. Configure a shell dos usuários como /bin/bash.
+
+
+
+5. Crie 3 contas pertencentes ao grupo svd: serv1, serv2, serv3. Estas contas deverão ter seus diretórios homes criados por comando dentro do diretório /home/svd/. Configure a shell dos usuários como /bin/bash.
+
+
+
+6. Crie senhas para os usuários.
+
+
+
+7. Logue com o usuário aluno1 e crie um arquivo chamado aluno1.txt, executando o comando: echo "Teste aluno1" > aluno1.txt
+... e saia do usuário aluno1.
+
+
+
+
+8. Visualize o conteúdo do arquivo aluno1.txt. O que o comando executado no item anterior fez?
+
+
+
+9. Os diretórios dos alunos, e todo o seu conteúdo, devem ser visíveis e editáveis aos membros do próprio grupo, visíveis mas não apagáveis a todos os demais usuários da rede.
+
+
+
+10. Logue com a conta aluno2. Faça um ls -l dentro do diretório home do usuário aluno1. Faça um cat no arquivo aluno1.txt.
+
+
+
+11. Posteriormente, tente fazer o seguinte comando dentro do diretório de aluno1:
+echo "Teste aluno2" >> aluno1.txt
+Foi possível executar este comando? Se não, por quê?
+
+
+
+12. Deslogue do usuário aluno2
+
+
+
+13. Logue com prof1 e crie um arquivo chamado prof1.txt, executando o comando:
+echo "Teste prof1" > prof1.txt
+Saia do usuário prof1.
+
+
+
+14. Os diretórios dos professores e servidores devem ser mutuamente visíveis, mas não apagáveis, entre os membros dos grupos professores e servidores. Além disso, não devem ser sequer visíveis aos membros do grupo alunos.
+
+
+
+15. Logue com um outro usuário prof e teste se você consegue listar o conteúdo do diretório home do usuário prof1, exibir o conteúdo do arquivo criado no diretório de prof1 e escrever algo neste mesmo arquivo.
+
+
+
+
+16. Logue com o usuário servidor1 e faça um ls -l dentro do diretório home do usuário prof1. Dê um cat no arquivo prof1.txt que está destro deste diretório. Tente editar este arquivo.
+
+
+
+17. Logue com um usuário aluno e faça um ls -l dentro do diretório home do usuário prof1. Foi possível executar este comando? Se não, por quê?
+
+
+
+18. Crie 3 grupos: casa, trabalho e escola.
+
+
+
+19. Crie um usuário com seu nome e atribua um dos grupos do item anterior como grupo principal e os demais como grupo secundário. Os demais parâmetros do usuário você pode escolher de acordo com o que foi feito para os outros usuários dessa lista.
+
+
+
+20. Qual o GID do grupo principal do seu usuário?
+
+
+
+21. Qual o UID do seu usuário?
+
+
+
+22. Qual o GID dos grupos secundários do seu usuário? Como você fez para descobrir essa informação?
+
+
+
