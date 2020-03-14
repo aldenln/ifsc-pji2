@@ -1,60 +1,328 @@
 
 1. Crie a partir do /home 3 diretórios, um com nome aln, outro prf e o último svd.
 
+aluno@aluno-VirtualBox:/home$ mkdir aln prf svd
+mkdir: não foi possível criar o diretório “aln”: Permissão negada
+mkdir: não foi possível criar o diretório “prf”: Permissão negada
+mkdir: não foi possível criar o diretório “svd”: Permissão negada
+aluno@aluno-VirtualBox:/home$ sudo mkdir aln prf svd
+[sudo] senha para aluno: 
+aluno@aluno-VirtualBox:/home$ ls -lu
+total 20
+drwxr-xr-x  2 root  root  4096 mar 13 20:45 aln
+drwxr-xr-x 20 aluno aluno 4096 mar 13 20:45 aluno
+drwxr-xr-x  3 joao  aluno 4096 mar 10 20:09 joao
+drwxr-xr-x  2 root  root  4096 mar 13 20:45 prf
+drwxr-xr-x  2 root  root  4096 mar 13 20:45 svd
+aluno@aluno-VirtualBox:/home$ 
 
 
 2. Crie 3 grupos com os mesmos nomes acima.
 
+aluno@aluno-VirtualBox:/home$ addgroup aln prf svd
+addgroup: Somente root pode acrescentar um usuário ou grupo ao sistema.
+aluno@aluno-VirtualBox:/home$ sudo addgroup aln prf svd
+addgroup: Somente um ou dois nomes permitidos.
+aluno@aluno-VirtualBox:/home$ sudo addgroup aln
+Adicionando grupo `aln' (GID 1003) ...
+Concluído.
+aluno@aluno-VirtualBox:/home$ sudo addgroup prf
+Adicionando grupo `prf' (GID 1004) ...
+Concluído.
+aluno@aluno-VirtualBox:/home$ sudo addgroup svd
+Adicionando grupo `svd' (GID 1005) ...
+Concluído.
+aluno@aluno-VirtualBox:/home$ 
 
 
 3. Crie 3 contas de usuários pertencentes ao grupo aln: aluno1, aluno2, aluno3. Estas contas deverão ter seus diretórios homes criados por comando dentro do diretório /home/aln/. Por exemplo para o aluno1 teremos /home/aln/aluno1. Configure a shell dos usuários como /bin/bash.
 
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/aln/aluno1 --shell /bin/bash --ingroup aln aluno1
+Adicionando o usuário `aluno1' ...
+Adicionando novo usuário `aluno1' (1002) ao grupo `aln' ...
+Criando diretório pessoal `/home/aln/aluno1' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para aluno1
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] s
+
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/aln/aluno2 --shell /bin/bash --ingroup aln aluno2
+Adicionando o usuário `aluno2' ...
+Adicionando novo usuário `aluno2' (1003) ao grupo `aln' ...
+Criando diretório pessoal `/home/aln/aluno2' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para aluno2
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] 
+
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/aln/aluno3 --shell /bin/bash --ingroup aln aluno3
+Adicionando o usuário `aluno3' ...
+Adicionando novo usuário `aluno3' (1004) ao grupo `aln' ...
+Criando diretório pessoal `/home/aln/aluno3' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para aluno3
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] 
+
+aluno@aluno-VirtualBox:/home$ cat /etc/passwd
+(...)
+aluno1:x:1002:1003:,,,:/home/aln/aluno1:/bin/bash
+aluno2:x:1003:1003:,,,:/home/aln/aluno2:/bin/bash
+aluno3:x:1004:1003:,,,:/home/aln/aluno3:/bin/bash
 
 
 4. Crie 3 contas pertencentes ao grupo prf: prof1, prof2, prof3. Estas contas deverão ter seus diretórios homes criados por comando dentro do diretório /home/prf/. Configure a shell dos usuários como /bin/bash.
 
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/prf/prof1 --shell /bin/bash --ingroup prf prof1
+Adicionando o usuário `prof1' ...
+Adicionando novo usuário `prof1' (1005) ao grupo `prf' ...
+Criando diretório pessoal `/home/prf/prof1' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para prof1
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] 
+
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/prf/prof2 --shell /bin/bash --ingroup prf prof2
+Adicionando o usuário `prof2' ...
+Adicionando novo usuário `prof2' (1006) ao grupo `prf' ...
+Criando diretório pessoal `/home/prf/prof2' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para prof2
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] 
+
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/prf/prof3 --shell /bin/bash --ingroup prf prof3
+Adicionando o usuário `prof3' ...
+Adicionando novo usuário `prof3' (1007) ao grupo `prf' ...
+Criando diretório pessoal `/home/prf/prof3' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX:
+Redigite a nova senha UNIX: 
+Nenhuma senha informada
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+Nenhuma senha informada
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para prof3
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro [
+A informação está correta? [S/n] 
+
+aluno@aluno-VirtualBox:/home$ cat /etc/passwd
+prof1:x:1005:1004:,,,:/home/prf/prof1:/bin/bash
+prof2:x:1006:1004:,,,:/home/prf/prof2:/bin/bash
+prof3:x:1007:1004:,,,:/home/prf/prof3:/bin/bash
 
 
 5. Crie 3 contas pertencentes ao grupo svd: serv1, serv2, serv3. Estas contas deverão ter seus diretórios homes criados por comando dentro do diretório /home/svd/. Configure a shell dos usuários como /bin/bash.
 
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/svd/serv1 --shell /bin/bash --ingroup svd serv1
+Adicionando o usuário `serv1' ...
+Adicionando novo usuário `serv1' (1010) ao grupo `svd' ...
+Criando diretório pessoal `/home/svd/serv1' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para serv1
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] 
+
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/svd/serv2 --shell /bin/bash --ingroup svd serv2
+Adicionando o usuário `serv2' ...
+Adicionando novo usuário `serv2' (1011) ao grupo `svd' ...
+Criando diretório pessoal `/home/svd/serv2' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para serv2
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] 
+
+aluno@aluno-VirtualBox:/home$ sudo adduser --home /home/svd/serv3 --shell /bin/bash --ingroup svd serv3
+Adicionando o usuário `serv3' ...
+Adicionando novo usuário `serv3' (1012) ao grupo `svd' ...
+Criando diretório pessoal `/home/svd/serv3' ...
+Copiando arquivos de '/etc/skel' ...
+Digite a nova senha UNIX: 
+Redigite a nova senha UNIX: 
+passwd: senha atualizada com sucesso
+Modificando as informações de usuário para serv3
+Informe o novo valor ou pressione ENTER para aceitar o padrão
+	Nome Completo []: 
+	Número da Sala []: 
+	Fone de Trabalho []: 
+	Fone Residencial []: 
+	Outro []: 
+A informação está correta? [S/n] s
+
+serv1:x:1010:1005:,,,:/home/svd/serv1:/bin/bash
+serv2:x:1011:1005:,,,:/home/svd/serv2:/bin/bash
+serv3:x:1012:1005:,,,:/home/svd/serv3:/bin/bash
 
 
 6. Crie senhas para os usuários.
 
-
+OK
 
 7. Logue com o usuário aluno1 e crie um arquivo chamado aluno1.txt, executando o comando: echo "Teste aluno1" > aluno1.txt
 ... e saia do usuário aluno1.
 
-
+aluno@aluno-VirtualBox:/home$ su - aluno1
+Senha: 
+aluno1@aluno-VirtualBox:~$ echo "Teste aluno1" > aluno1.txt
+aluno1@aluno-VirtualBox:~$ exit
+sair
+aluno@aluno-VirtualBox:/home$ 
 
 
 8. Visualize o conteúdo do arquivo aluno1.txt. O que o comando executado no item anterior fez?
+
+aluno@aluno-VirtualBox:/home$ cat aln/aluno1/
+aluno1.txt     .bash_logout   .gnupg/        
+.bash_history  .bashrc        .profile       
+aluno@aluno-VirtualBox:/home$ cat aln/aluno1/aluno1.txt 
+Teste aluno1
+aluno@aluno-VirtualBox:/home$ 
+
+>>O comando eviou a saida "Teste aluno1" para um novo arquivo chamado aluno1.txt
 
 
 
 9. Os diretórios dos alunos, e todo o seu conteúdo, devem ser visíveis e editáveis aos membros do próprio grupo, visíveis mas não apagáveis a todos os demais usuários da rede.
 
+aluno@aluno-VirtualBox:/home$ ls -l /home/aln/
+total 12
+drwxr-xr-x 3 aluno1 aln 4096 mar 13 21:29 aluno1
+drwxr-xr-x 2 aluno2 aln 4096 mar 13 20:55 aluno2
+drwxr-xr-x 2 aluno3 aln 4096 mar 13 20:55 aluno3
+aluno@aluno-VirtualBox:/home$ chmod -R 775 al
+aln/   aluno/ 
+aluno@aluno-VirtualBox:/home$ chmod -R 775 aln/aluno*
+chmod: alterando permissões de 'aln/aluno1': Operação não permitida
+chmod: alterando permissões de 'aln/aluno1/.gnupg': Operação não permitida
+chmod: não foi possível ler diretório 'aln/aluno1/.gnupg': Permissão negada
+chmod: alterando permissões de 'aln/aluno1/.bashrc': Operação não permitida
+chmod: alterando permissões de 'aln/aluno1/aluno1.txt': Operação não permitida
+chmod: alterando permissões de 'aln/aluno1/.profile': Operação não permitida
+chmod: alterando permissões de 'aln/aluno1/.bash_logout': Operação não permitida
+chmod: alterando permissões de 'aln/aluno1/.bash_history': Operação não permitida
+chmod: alterando permissões de 'aln/aluno2': Operação não permitida
+chmod: alterando permissões de 'aln/aluno2/.bashrc': Operação não permitida
+chmod: alterando permissões de 'aln/aluno2/.profile': Operação não permitida
+chmod: alterando permissões de 'aln/aluno2/.bash_logout': Operação não permitida
+chmod: alterando permissões de 'aln/aluno3': Operação não permitida
+chmod: alterando permissões de 'aln/aluno3/.bashrc': Operação não permitida
+chmod: alterando permissões de 'aln/aluno3/.profile': Operação não permitida
+chmod: alterando permissões de 'aln/aluno3/.bash_logout': Operação não permitida
+aluno@aluno-VirtualBox:/home$ sudo chmod -R 775 aln/aluno*
+
+aluno@aluno-VirtualBox:/home$ ls -l /home/aln/
+total 12
+drwxrwxr-x 3 aluno1 aln 4096 mar 13 21:29 aluno1
+drwxrwxr-x 2 aluno2 aln 4096 mar 13 20:55 aluno2
+drwxrwxr-x 2 aluno3 aln 4096 mar 13 20:55 aluno3
 
 
 10. Logue com a conta aluno2. Faça um ls -l dentro do diretório home do usuário aluno1. Faça um cat no arquivo aluno1.txt.
 
+aluno@aluno-VirtualBox:/home$ su - aluno2
+Senha: 
+aluno2@aluno-VirtualBox:~$ ls -l ../aluno1/
+total 4
+-rwxrwxr-x 1 aluno1 aln 13 mar 13 21:28 aluno1.txt
+aluno2@aluno-VirtualBox:~$ 
+
+aluno2@aluno-VirtualBox:~$ cat ../aluno1/aluno1.txt 
+Teste aluno1
+aluno2@aluno-VirtualBox:~$ 
 
 
 11. Posteriormente, tente fazer o seguinte comando dentro do diretório de aluno1:
 echo "Teste aluno2" >> aluno1.txt
 Foi possível executar este comando? Se não, por quê?
 
+aluno2@aluno-VirtualBox:~$ echo "Teste aluno2" >> ../aluno1/aluno1.txt 
+aluno2@aluno-VirtualBox:~$ cat ../aluno1/aluno1.txt 
+Teste aluno1
+Teste aluno2
+aluno2@aluno-VirtualBox:~$ 
 
+>>Sim pois o aluno2 pertence ao mesmo grupo (aln) e o grupo tem permissão de escrita.
 
 12. Deslogue do usuário aluno2
 
+aluno2@aluno-VirtualBox:~$ exit
+sair
+aluno@aluno-VirtualBox:/home$ 
 
 
 13. Logue com prof1 e crie um arquivo chamado prof1.txt, executando o comando:
+
 echo "Teste prof1" > prof1.txt
 Saia do usuário prof1.
 
+aluno@aluno-VirtualBox:/home$ su - prof1
+Senha: 
+prof1@aluno-VirtualBox:~$ echo "Teste prof1" > prof1.txt
+prof1@aluno-VirtualBox:~$ 
 
 
 14. Os diretórios dos professores e servidores devem ser mutuamente visíveis, mas não apagáveis, entre os membros dos grupos professores e servidores. Além disso, não devem ser sequer visíveis aos membros do grupo alunos.
