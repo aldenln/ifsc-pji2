@@ -3,9 +3,41 @@ Descrição:
 
 1) Ler conteúdo da wiki: aulas 13, 15 e 16.
 
+ok
+
 2) Assistir vídeo aulas indicadas nas aulas do dia 31/03 à 07/04.
 
+ok
+
 3) Fazer resumos, anotações do que é importante tanto da wiki quanto das vídeo aulas.
+
+---Aula 13---
+
+tar -> concatena arquivos e pastas em um único arquivo:
+>pode criar, mostrar ou extrair o conteudo concatenado.
+>pode criar e compactar o conteúdo. integrado com diversos compactadores como compress, gzip, bzip2, xz, e outros
+>adimite uma serie de parâmetros:
+-c - cria um novo arquivo tar;
+-M - cria, lista ou extrai um arquivo multivolume;
+-p - mantém as permissões originais do(s) arquivo(s);
+-r - acrescenta arquivos a um arquivo tar;
+-t - exibe o conteúdo de um arquivo tar;
+-v - exibe detalhes da operação;
+-w - pede confirmação antes de cada ação;
+-x - extrai arquivos de um arquivo tar;
+-z - comprime ou extrai arquivos tar resultante com o gzip;
+-j - comprime ou extrai arquivos tar resultante com o bz2;
+-f - especifica o arquivo tar a ser usado;
+-C - especifica o diretório dos arquivos a serem armazenados. 
+
+---Aula 15---
+
+
+---Aula 16---
+
+
+
+
 
 4) Fazer os exercícios que estão na wiki no final das aulas 13 e 16.
 
@@ -14,35 +46,292 @@ Descrição:
 Faça os exercícios abaixo usando os compactadores no modo texto:
 
    4.1. Procure um arquivo de texto (extensão .txt, .html, ou .doc) com ao menos 100 kB e compacte-o com compress, gzip, bzip2 e xz. Compare os tamanhos dos arquivos resultantes.
+
+
+aluno@aluno-VirtualBox:~/Documentos$ tar czf exemplo.tar.Z exemplo.txt 
+aluno@aluno-VirtualBox:~/Documentos$ tar czf exemplo.tar.gz exemplo.txt 
+aluno@aluno-VirtualBox:~/Documentos$ tar cjf exemplo.tar.bz2 exemplo.txt 
+aluno@aluno-VirtualBox:~/Documentos$ tar cJf exemplo.tar.xz exemplo.txt 
+aluno@aluno-VirtualBox:~/Documentos$ ls -lua
+total 444
+drwxr-xr-x  2 aluno aluno   4096 abr 10 17:44 .
+drwxr-xr-x 16 aluno aluno   4096 abr 10 17:25 ..
+-rw-r--r--  1 aluno aluno  68450 abr 10 17:44 exemplo.tar.bz2
+-rw-r--r--  1 aluno aluno  70480 abr 10 17:43 exemplo.tar.gz
+-rw-r--r--  1 aluno aluno  69860 abr 10 17:44 exemplo.tar.xz
+-rw-r--r--  1 aluno aluno  70480 abr 10 17:43 exemplo.tar.Z
+-rw-rw-r--  1 aluno aluno 153104 abr 10 17:43 exemplo.txt
+
+> Bzip2 apresentou maior compactação apesar de todos os compactadores apresentarem desempenho muito próximos. 
+> Os compactadores Gzip e Compress resultaram em tamanhos idênticos neste exemplo.
     
-    
+   
     
    4.2. Usando o programa tar, compacte todo o diretório Documentos do usuário aluno. Experimente criar o arquivo tar sem compactação, e depois compactado com cada um dos compactadores vistos. Você terá portanto como resultado quatro arquivos tar diferentes ...
    
-   
+aluno@aluno-VirtualBox:~$ tar cf Documentos.tar Documentos 
+aluno@aluno-VirtualBox:~$ tar czf Documentos.tar.Z Documentos
+aluno@aluno-VirtualBox:~$ tar czf Documentos.tar.gz Documentos 
+aluno@aluno-VirtualBox:~$ tar cjf Documentos.tar.bz2 Documentos 
+aluno@aluno-VirtualBox:~$ tar cJf Documentos.tar.xz Documentos 
+aluno@aluno-VirtualBox:~$ ls -lu
+total 1752
+drwxr-xr-x 2 aluno aluno   4096 mar 20 17:37 'Área de Trabalho'
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:44  Documentos
+-rw-r--r-- 1 aluno aluno 440320 abr 10 17:51  Documentos.tar
+-rw-r--r-- 1 aluno aluno 318713 abr 10 17:52  Documentos.tar.bz2
+-rw-r--r-- 1 aluno aluno 354386 abr 10 17:52  Documentos.tar.gz
+-rw-r--r-- 1 aluno aluno 281536 abr 10 17:52  Documentos.tar.xz
+-rw-r--r-- 1 aluno aluno 354386 abr 10 17:51  Documentos.tar.Z
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Downloads
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Imagens
+drwxr-xr-x 2 aluno aluno   4096 mar 20 17:37  Modelos
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Música
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Público
+drwxr-xr-x 3 aluno aluno   4096 abr 10 17:25  snap
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Vídeos
+
+
    
    4.3. Descompacte os arquivos tar gerados na questão anterior. Para evitar sobreposição, descompacte cada um deles em um diretório separado.
+   
+   
+aluno@aluno-VirtualBox:~$ mkdir documentos.tar
+aluno@aluno-VirtualBox:~$ mkdir documentos.tar.bz2
+aluno@aluno-VirtualBox:~$ mkdir documentos.tar.gz
+aluno@aluno-VirtualBox:~$ mkdir documentos.tar.xz
+aluno@aluno-VirtualBox:~$ mkdir documentos.tar.Z
+aluno@aluno-VirtualBox:~$ ls -lu
+total 1704
+drwxr-xr-x 2 aluno aluno   4096 mar 20 17:37 'Área de Trabalho'
+drwxr-xr-x 2 aluno aluno   4096 abr 10 18:08  Documentos
+drwxr-xr-x 2 aluno aluno   4096 abr 10 18:20  documentos.tar
+-rw-r--r-- 1 aluno aluno 440320 abr 10 18:19  Documentos.tar
+drwxr-xr-x 2 aluno aluno   4096 abr 10 18:20  documentos.tar.bz2
+-rw-r--r-- 1 aluno aluno 318713 abr 10 17:52  Documentos.tar.bz2
+drwxr-xr-x 2 aluno aluno   4096 abr 10 18:20  documentos.tar.gz
+-rw-r--r-- 1 aluno aluno 354386 abr 10 17:52  Documentos.tar.gz
+drwxr-xr-x 2 aluno aluno   4096 abr 10 18:20  documentos.tar.xz
+-rw-r--r-- 1 aluno aluno 281536 abr 10 17:52  Documentos.tar.xz
+drwxr-xr-x 2 aluno aluno   4096 abr 10 18:20  documentos.tar.Z
+-rw-r--r-- 1 aluno aluno 284032 abr 10 18:11  Documentos.tar.Z
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Downloads
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Imagens
+drwxr-xr-x 2 aluno aluno   4096 mar 20 17:37  Modelos
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Música
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Público
+drwxr-xr-x 3 aluno aluno   4096 abr 10 17:25  snap
+drwxr-xr-x 2 aluno aluno   4096 abr 10 17:39  Vídeos
+aluno@aluno-VirtualBox:~$ tar -xf Documentos.tar -C documentos.tar 
+aluno@aluno-VirtualBox:~$ tar -xzf Documentos.tar.Z -C documentos.tar.Z 
+aluno@aluno-VirtualBox:~$ tar -xzf Documentos.tar.gz -C documentos.tar.gz 
+aluno@aluno-VirtualBox:~$ tar -xjf Documentos.tar.bz2 -C documentos.tar.bz2 
+aluno@aluno-VirtualBox:~$ tar -xJf Documentos.tar.xz -C documentos.tar.xz 
+ 
+   
+>checando todas as pastas extraídas:
+
+aluno@aluno-VirtualBox:~$ la -lu documentos.tar/Documentos/
+total 436
+-rw-r--r-- 1 aluno aluno  68450 abr 10 18:21 exemplo.tar.bz2
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:21 exemplo.tar.gz
+-rw-r--r-- 1 aluno aluno  69860 abr 10 18:21 exemplo.tar.xz
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:21 exemplo.tar.Z
+-rw-r--r-- 1 aluno aluno 153104 abr 10 18:21 exemplo.txt
+aluno@aluno-VirtualBox:~$ la -lu documentos.tar.Z/Documentos/
+total 364
+-rw-r--r-- 1 aluno aluno  68450 abr 10 18:22 exemplo.tar.bz2
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:22 exemplo.tar.gz
+-rw-r--r-- 1 aluno aluno  69860 abr 10 18:22 exemplo.tar.xz
+-rw-r--r-- 1 aluno aluno      0 abr 10 18:22 exemplo.tar.Z
+-rw-r--r-- 1 aluno aluno 153104 abr 10 18:22 exemplo.txt
+aluno@aluno-VirtualBox:~$ la -lu documentos.tar.gz/Documentos/
+total 436
+-rw-r--r-- 1 aluno aluno  68450 abr 10 18:23 exemplo.tar.bz2
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:23 exemplo.tar.gz
+-rw-r--r-- 1 aluno aluno  69860 abr 10 18:23 exemplo.tar.xz
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:23 exemplo.tar.Z
+-rw-r--r-- 1 aluno aluno 153104 abr 10 18:23 exemplo.txt
+aluno@aluno-VirtualBox:~$ la -lu documentos.tar.bz2/Documentos/
+total 436
+-rw-r--r-- 1 aluno aluno  68450 abr 10 18:23 exemplo.tar.bz2
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:23 exemplo.tar.gz
+-rw-r--r-- 1 aluno aluno  69860 abr 10 18:23 exemplo.tar.xz
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:23 exemplo.tar.Z
+-rw-r--r-- 1 aluno aluno 153104 abr 10 18:23 exemplo.txt
+aluno@aluno-VirtualBox:~$ la -lu documentos.tar.xz/Documentos/
+total 436
+-rw-r--r-- 1 aluno aluno  68450 abr 10 18:23 exemplo.tar.bz2
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:23 exemplo.tar.gz
+-rw-r--r-- 1 aluno aluno  69860 abr 10 18:23 exemplo.tar.xz
+-rw-r--r-- 1 aluno aluno  70480 abr 10 18:23 exemplo.tar.Z
+-rw-r--r-- 1 aluno aluno 153104 abr 10 18:23 exemplo.txt
+
 
 
    4.4. Baixe o arquivo do link abaixo e faça o exercício proposto: Arquivos_gerais.tar.gz
 
    4.4.1. Descompacte o arquivo.
    
-   
+aluno@aluno-VirtualBox:~$ cd Downloads/
+aluno@aluno-VirtualBox:~/Downloads$ ls -lu
+total 69544
+-rw-rw-r-- 1 aluno aluno 71211029 abr 10 18:29 arquivos_gerais.tar.gz
+
+aluno@aluno-VirtualBox:~/Downloads$ tar -xzf arquivos_gerais.tar.gz 
+aluno@aluno-VirtualBox:~/Downloads$ ls -lu
+total 142536
+-rwxr-xr-x 1 aluno aluno  1189376 abr 10 18:39  apostila.doc
+-rwxr-xr-x 1 aluno aluno  2630385 abr 10 18:39 'apostlia nova tel 1.odt'
+-rwxr-xr-x 1 aluno aluno  2402735 abr 10 18:40 'Apostlia Tel 1 IFSC.pdf'
+-rw-rw-r-- 1 aluno aluno 71211029 abr 10 18:39  arquivos_gerais.tar.gz
+-rw-r--r-- 1 aluno aluno 10557792 abr 10 18:40  chmod.mp4
+-rw-r--r-- 1 aluno aluno    11318 abr 10 18:40  download.jpeg
+-rw-r--r-- 1 aluno aluno  8768408 abr 10 18:39  guns_n_roses_november_rain_8SbUC-UaAxE.mp3
+-rw-r--r-- 1 aluno aluno  5844784 abr 10 18:39  guns_n_roses_patience_ErvgV4P6Fzc.mp3
+-rw-r--r-- 1 aluno aluno 10557792 abr 10 18:40  gzip.mp4
+-rw-r--r-- 1 aluno aluno     6150 abr 10 18:40  Linux1.jpeg
+-rw-r--r-- 1 aluno aluno    10934 abr 10 18:40  linux2.jpeg
+-rw-r--r-- 1 aluno aluno  6020856 abr 10 18:40  linux.mp4
+-rw-r--r-- 1 aluno aluno  6173300 abr 10 18:39  metallica_nothing_else_matters_official_music_video_tAGnKpE4NCI.mp3
+-rw-r--r-- 1 aluno aluno  6135683 abr 10 18:39  metallica_the_unforgiven_video_Ckom3gf57Yw.mp3
+-rw-r--r-- 1 aluno aluno  5740218 abr 10 18:40  mkdir.mp4
+-rw-r--r-- 1 aluno aluno     4511 abr 10 18:40  Paisagem1.jpeg
+-rw-r--r-- 1 aluno aluno    16496 abr 10 18:40  paisagem2.jpeg
+-rw-r--r-- 1 aluno aluno  3630437 abr 10 18:39  papas_da_lingua_eu_sei_WVy83AkegiY.mp3
+-rw-r--r-- 1 aluno aluno  4924021 abr 10 18:39  papas_da_lingua_lua_cheia_dvd_bloco_na_rua_2011_QhBAf1XXl0k.mp3
+-rwxr-xr-x 1 aluno aluno    58880 abr 10 18:39 'Plano Telefonia I 2002 real.doc'
+-rw-r--r-- 1 aluno aluno     8943 abr 10 18:40  telecomunicacoes1.jpeg
+-rw-r--r-- 1 aluno aluno     6936 abr 10 18:40  telecomunicacoes2.jpeg
+aluno@aluno-VirtualBox:~/Downloads$ 
+
    
    4.4.2. Separe os arquivos em suas respectivas pastas (vídeos, músicas, documentos, imagens) através de comandos para mover no terminal.
-   
-   
+
+aluno@aluno-VirtualBox:~/Downloads$ mkdir videos
+aluno@aluno-VirtualBox:~/Downloads$ mkdir musicas
+aluno@aluno-VirtualBox:~/Downloads$ mkdir documentos
+aluno@aluno-VirtualBox:~/Downloads$ mkdir imagens
+
+aluno@aluno-VirtualBox:~/Downloads$ mv *.doc *.odt *.pdf documentos
+aluno@aluno-VirtualBox:~/Downloads$ mv *.jpeg imagens
+aluno@aluno-VirtualBox:~/Downloads$ mv *.mp4 videos
+aluno@aluno-VirtualBox:~/Downloads$ mv *.mp3 musicas
+
+aluno@aluno-VirtualBox:~/Downloads$ ls -lu
+total 69560
+-rw-rw-r-- 1 aluno aluno 71211029 abr 10 18:39 arquivos_gerais.tar.gz
+drwxr-xr-x 2 aluno aluno     4096 abr 10 18:46 documentos
+drwxr-xr-x 2 aluno aluno     4096 abr 10 18:42 imagens
+drwxr-xr-x 2 aluno aluno     4096 abr 10 18:42 musicas
+drwxr-xr-x 2 aluno aluno     4096 abr 10 18:42 videos
+aluno@aluno-VirtualBox:~/Downloads$ 
+
    
    4.4.3. Compacte os arquivos usando o compress, gzip, bzip2 e xz em conjunto com o tar. Compare os tamanhos dos arquivos resultantes.
    
-   
+aluno@aluno-VirtualBox:~/Downloads$ tar cf documentos.tar documentos
+aluno@aluno-VirtualBox:~/Downloads$ tar czf documentos.tar.Z documentos
+aluno@aluno-VirtualBox:~/Downloads$ tar czf documentos.tar.gz documentos
+aluno@aluno-VirtualBox:~/Downloads$ tar cjf documentos.tar.bz2 documentos
+aluno@aluno-VirtualBox:~/Downloads$ tar cJf documentos.tar.xz documentos
+
+aluno@aluno-VirtualBox:~/Downloads$ tar cf imagens.tar imagens
+aluno@aluno-VirtualBox:~/Downloads$ tar czf imagens.tar.Z imagens
+aluno@aluno-VirtualBox:~/Downloads$ tar czf imagens.tar.gz imagens
+aluno@aluno-VirtualBox:~/Downloads$ tar cjf imagens.tar.bz2 imagens
+aluno@aluno-VirtualBox:~/Downloads$ tar cJf imagens.tar.xz imagens
+
+aluno@aluno-VirtualBox:~/Downloads$ tar cf musicas.tar musicas
+aluno@aluno-VirtualBox:~/Downloads$ tar czf musicas.tar.Z musicas
+aluno@aluno-VirtualBox:~/Downloads$ tar czf musicas.tar.gz musicas
+aluno@aluno-VirtualBox:~/Downloads$ tar cjf musicas.tar.bz2 musicas
+aluno@aluno-VirtualBox:~/Downloads$ tar cJf musicas.tar.xz musicas
+
+aluno@aluno-VirtualBox:~/Downloads$ tar cf videos.tar videos
+aluno@aluno-VirtualBox:~/Downloads$ tar czf videos.tar.Z videos
+aluno@aluno-VirtualBox:~/Downloads$ tar czf videos.tar.gz videos
+aluno@aluno-VirtualBox:~/Downloads$ tar cjf videos.tar.bz2 videos
+aluno@aluno-VirtualBox:~/Downloads$ tar cJf videos.tar.xz videos
+
+aluno@aluno-VirtualBox:~/Downloads$ ls -lu
+total 414952
+-rw-rw-r-- 1 aluno aluno 71211029 abr 10 18:39 arquivos_gerais.tar.gz
+drwxr-xr-x 2 aluno aluno     4096 abr 10 18:46 documentos
+-rw-r--r-- 1 aluno aluno  6287360 abr 10 18:54 documentos.tar
+-rw-r--r-- 1 aluno aluno  5142710 abr 10 18:56 documentos.tar.bz2
+-rw-r--r-- 1 aluno aluno  5041295 abr 10 18:55 documentos.tar.gz
+-rw-r--r-- 1 aluno aluno  4902244 abr 10 18:56 documentos.tar.xz
+-rw-r--r-- 1 aluno aluno  5041295 abr 10 18:55 documentos.tar.Z
+drwxr-xr-x 2 aluno aluno     4096 abr 10 18:58 imagens
+-rw-r--r-- 1 aluno aluno    81920 abr 10 18:58 imagens.tar
+-rw-r--r-- 1 aluno aluno    65208 abr 10 18:58 imagens.tar.bz2
+-rw-r--r-- 1 aluno aluno    64841 abr 10 18:58 imagens.tar.gz
+-rw-r--r-- 1 aluno aluno    64904 abr 10 18:58 imagens.tar.xz
+-rw-r--r-- 1 aluno aluno    64841 abr 10 18:58 imagens.tar.Z
+drwxr-xr-x 2 aluno aluno     4096 abr 10 18:58 musicas
+-rw-r--r-- 1 aluno aluno 35491840 abr 10 18:58 musicas.tar
+-rw-r--r-- 1 aluno aluno 35076954 abr 10 18:58 musicas.tar.bz2
+-rw-r--r-- 1 aluno aluno 35149113 abr 10 18:58 musicas.tar.gz
+-rw-r--r-- 1 aluno aluno 35225548 abr 10 18:58 musicas.tar.xz
+-rw-r--r-- 1 aluno aluno 35149113 abr 10 18:58 musicas.tar.Z
+drwxr-xr-x 2 aluno aluno     4096 abr 10 18:59 videos
+-rw-r--r-- 1 aluno aluno 32890880 abr 10 18:59 videos.tar
+-rw-r--r-- 1 aluno aluno 29497689 abr 10 18:59 videos.tar.bz2
+-rw-r--r-- 1 aluno aluno 30955032 abr 10 18:59 videos.tar.gz
+-rw-r--r-- 1 aluno aluno 26511664 abr 10 19:00 videos.tar.xz
+-rw-r--r-- 1 aluno aluno 30955032 abr 10 18:59 videos.tar.Z
+aluno@aluno-VirtualBox:~/Downloads$ 
+
    
    4.4.4. Liste o conteúdo de cada um dos arquivos compactados
    
+>vou fazer somente para uma das pastas:
    
+luno@aluno-VirtualBox:~/Downloads$ tar tvf videos.tar videos
+drwxr-xr-x aluno/aluno       0 2020-04-10 18:48 videos/
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:37 videos/gzip.mp4
+-rw-r--r-- aluno/aluno  5740218 2018-03-29 14:40 videos/mkdir.mp4
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:39 videos/chmod.mp4
+-rw-r--r-- aluno/aluno  6020856 2018-03-29 14:35 videos/linux.mp4
+
+aluno@aluno-VirtualBox:~/Downloads$ tar tvzf videos.tar.Z videos
+drwxr-xr-x aluno/aluno       0 2020-04-10 18:48 videos/
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:37 videos/gzip.mp4
+-rw-r--r-- aluno/aluno  5740218 2018-03-29 14:40 videos/mkdir.mp4
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:39 videos/chmod.mp4
+-rw-r--r-- aluno/aluno  6020856 2018-03-29 14:35 videos/linux.mp4
+
+aluno@aluno-VirtualBox:~/Downloads$ tar tvzf videos.tar.gz videos
+drwxr-xr-x aluno/aluno       0 2020-04-10 18:48 videos/
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:37 videos/gzip.mp4
+-rw-r--r-- aluno/aluno  5740218 2018-03-29 14:40 videos/mkdir.mp4
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:39 videos/chmod.mp4
+-rw-r--r-- aluno/aluno  6020856 2018-03-29 14:35 videos/linux.mp4
+
+aluno@aluno-VirtualBox:~/Downloads$ tar tvjf videos.tar.bz2 videos
+drwxr-xr-x aluno/aluno       0 2020-04-10 18:48 videos/
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:37 videos/gzip.mp4
+-rw-r--r-- aluno/aluno  5740218 2018-03-29 14:40 videos/mkdir.mp4
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:39 videos/chmod.mp4
+-rw-r--r-- aluno/aluno  6020856 2018-03-29 14:35 videos/linux.mp4
+
+aluno@aluno-VirtualBox:~/Downloads$ tar tvJf videos.tar.xz videos
+drwxr-xr-x aluno/aluno       0 2020-04-10 18:48 videos/
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:37 videos/gzip.mp4
+-rw-r--r-- aluno/aluno  5740218 2018-03-29 14:40 videos/mkdir.mp4
+-rw-r--r-- aluno/aluno 10557792 2018-03-29 14:39 videos/chmod.mp4
+-rw-r--r-- aluno/aluno  6020856 2018-03-29 14:35 videos/linux.mp4
+
    
    4.4.5. Descompacte os arquivos criados anteriormente no diretório /home/aluno/arquivos_gerais
+
+>vou aplicar de forma alternada a descompactação e pasta sucessivamente pra simplificar o resultado e evitar sobreposição:
+
+
+
+
+
 
 
 
