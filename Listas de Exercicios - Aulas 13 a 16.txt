@@ -9,7 +9,54 @@ Descrição:
 
 4) Fazer os exercícios que estão na wiki no final das aulas 13 e 16.
 
+---Exercícios Aula 13---
+
+Faça os exercícios abaixo usando os compactadores no modo texto:
+
+   4.1. Procure um arquivo de texto (extensão .txt, .html, ou .doc) com ao menos 100 kB e compacte-o com compress, gzip, bzip2 e xz. Compare os tamanhos dos arquivos resultantes.
+    
+    
+    
+   4.2. Usando o programa tar, compacte todo o diretório Documentos do usuário aluno. Experimente criar o arquivo tar sem compactação, e depois compactado com cada um dos compactadores vistos. Você terá portanto como resultado quatro arquivos tar diferentes ...
+   
+   
+   
+   4.3. Descompacte os arquivos tar gerados na questão anterior. Para evitar sobreposição, descompacte cada um deles em um diretório separado.
+
+
+   4.4. Baixe o arquivo do link abaixo e faça o exercício proposto: Arquivos_gerais.tar.gz
+
+   4.4.1. Descompacte o arquivo.
+   
+   
+   
+   4.4.2. Separe os arquivos em suas respectivas pastas (vídeos, músicas, documentos, imagens) através de comandos para mover no terminal.
+   
+   
+   
+   4.4.3. Compacte os arquivos usando o compress, gzip, bzip2 e xz em conjunto com o tar. Compare os tamanhos dos arquivos resultantes.
+   
+   
+   
+   4.4.4. Liste o conteúdo de cada um dos arquivos compactados
+   
+   
+   
+   4.4.5. Descompacte os arquivos criados anteriormente no diretório /home/aluno/arquivos_gerais
+
+
+
+---Exercícios Aula 16---
+
+
+
+
+
+
+
+
 5) Enviar as fotos dos exercícios também. De preferências, enviar todas as fotos de uma só vez, ao finalizarem o estudo desses conteúdos. Se não conseguirem enviar pelo aqui pelo SIGAA pode enviar por e-mail.
+
 Período:
 Inicia em 03/04/2020 às 19h00 e finaliza em 10/04/2020 às 23h59
 
