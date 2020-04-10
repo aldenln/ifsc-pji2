@@ -326,8 +326,21 @@ drwxr-xr-x aluno/aluno       0 2020-04-10 18:48 videos/
    
    4.4.5. Descompacte os arquivos criados anteriormente no diretório /home/aluno/arquivos_gerais
 
->vou aplicar de forma alternada a descompactação e pasta sucessivamente pra simplificar o resultado e evitar sobreposição:
 
+
+>vou optar por aplicar de forma alternada a descompactação e pasta sucessivamente pra simplificar o resultado, evitar sobreposição e usar todos os compactadores vistos até agora:
+
+aluno@aluno-VirtualBox:~/Downloads$ mkdir /home/aluno/arquivos_gerais
+aluno@aluno-VirtualBox:~/Downloads$ tar xzf documentos.tar.Z -C /home/aluno/arquivos_gerais
+aluno@aluno-VirtualBox:~/Downloads$ tar xzf imagens.tar.gz -C /home/aluno/arquivos_gerais
+aluno@aluno-VirtualBox:~/Downloads$ tar xjf musicas.tar.bz2 -C /home/aluno/arquivos_gerais
+aluno@aluno-VirtualBox:~/Downloads$ tar xJf videos.tar.xz -C /home/aluno/arquivos_gerais
+aluno@aluno-VirtualBox:~/Downloads$ ls -lu /home/aluno/arquivos_gerais
+total 16
+drwxr-xr-x 2 aluno aluno 4096 abr 10 19:13 documentos
+drwxr-xr-x 2 aluno aluno 4096 abr 10 19:13 imagens
+drwxr-xr-x 2 aluno aluno 4096 abr 10 19:14 musicas
+drwxr-xr-x 2 aluno aluno 4096 abr 10 19:14 videos
 
 
 
