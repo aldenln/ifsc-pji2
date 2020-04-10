@@ -11,6 +11,19 @@ ok
 
 3) Fazer resumos, anotações do que é importante tanto da wiki quanto das vídeo aulas.
 
+---Curso Udemy---
+
+Novos comandos aprendidos:
+
+Executar comandos em background (operador &)
+Kill
+Top
+htop
+apt-get
+shell script (.sh)
+shutdown
+
+
 ---Aula 13---
 
 tar -> concatena arquivos e pastas em um único arquivo:
@@ -31,6 +44,80 @@ tar -> concatena arquivos e pastas em um único arquivo:
 -C - especifica o diretório dos arquivos a serem armazenados. 
 
 ---Aula 15---
+
+IPv4
+Endereçamento IP
+Classes:
+Classe A 1.0.0.0/8 até 127.0.0.0/8
+Classe B 128.0.0.0/16 até 191.255.0.0/16
+Classe C 192.0.0.0/24 até 223.255.255.0/24
+Classes Especiais
+Rede privadas
+
+IPv6
+Formato do endereçamento IPv6
+FE80:0000:0000:0000:68DA:8909:3A22:FECA
+FE80:0:0:0:68DA:8909:3A22:FECA
+FE80::68DA:8909:3A22:FECA
+
+Interfaces de rede
+aluno@M1:~> ifconfig eth0 192.168.1.100 netmask 255.255.255.0 *temporário
+aluno@M1:~> ifconfig eth0 down/up
+aluno@M1:~> netstat -rn
+
+route add default gw 192.168.10.100
+
+vi /etc/resolv.conf
+
+IP alias:
+aluno@M1:~> ifconfig eth0:0 192.168.1.110 netmask 255.255.255.0
+aluno@M1:~> ifconfig eth0:1 192.168.2.100 netmask 255.255.255.0
+aluno@M1:~> ifconfig -a
+eth0      Link encap:Ethernet  HWaddr 00:19:D1:7D:C9:A9
+          inet addr:192.168.1.100  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:37295731 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:42068558 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:20942258027 (19972.0 Mb)  TX bytes:18294794452 (17447.2 Mb)
+          Interrupt:16 Base address:0xc000
+
+eth0:0    Link encap:Ethernet  HWaddr 00:19:D1:7D:C9:A9
+          inet addr:192.168.1.110  Bcast:192.168.1.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          Interrupt:16 Base address:0xc000
+
+eth0:1    Link encap:Ethernet  HWaddr 00:19:D1:7D:C9:A9
+          inet addr:192.168.2.100  Bcast:192.168.2.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          Interrupt:16 Base address:0xc000
+aluno@M1:~>
+
+
+Configuração permanente: /etc/network/interfaces
+
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+        address 127.0.0.1
+        netmask 255.0.0.0
+
+# a interface ethernet eth0
+auto eth0
+iface eth0 inet static
+	address 192.168.1.100
+	netmask 255.255.255.0
+	gateway 192.168.1.254
+        dns-nameservers 200.135.37.65
+
+
+
+Configuração minima funcional do host *para acessar a internet:
+Ip, MAscara de subrede, Rota default (gateway), DNS
+
 
 
 ---Aula 16---
