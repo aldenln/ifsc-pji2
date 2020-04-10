@@ -116,12 +116,22 @@ iface eth0 inet static
 
 
 Configuração minima funcional do host *para acessar a internet:
-Ip, MAscara de subrede, Rota default (gateway), DNS
+Ip, Máscara de subrede, Rota default (gateway), DNS
 
 
 
 ---Aula 16---
 
+
+Configuração de rede: subredes
+
+binário <-> decimal
+
+Estrutura BINÁRIA do endereço IPv4
+ID de rede + ID de host = 32 bits
+
+Criando Subredes
+Dividindo as subredes
 
 
 
@@ -432,15 +442,38 @@ drwxr-xr-x 2 aluno aluno 4096 abr 10 19:14 videos
 
 
 
-
-
-
 ---Exercícios Aula 16---
 
 
+1. Considerando o IP 200.168.10.66/26, responda:
 
+    Qual o endereço de rede?
+    Qual o endereço de Broadcast?
+    Qual a máscara de sub-redes?
+    Quantos hosts há nessa rede?
+    Qual o intervalo válido de IPs para essa rede?
 
+    Solução:
 
+    	200.168.010.066/26
+    	 8 + 8 + 8 + 2 = 26 bits da rede e 6 bits restantes para endereço de host
+    
+    	Logo: os últimos 8bits são divididos em 2bits de rede (2² = 4 redes) e 6bits de host (2⁶ = 64 hosts)
+    	O decimal de 8bits = 2⁸ = 256; Considerando que o primeiro valor é 0 então o último valor é 255.
+	
+	assim as rede e endereços ficam divididos em 4 conjuntos:
+	1º = Rede 200.168.10.0		200.168.10.1 até 200.168.10.62		200.168.10.63 (difusão) 
+	2º = Rede 200.168.10.64		200.168.10.65 até 200.168.10.126	200.168.10.127 (difusão)
+	3º = Rede 200.168.10.128	200.168.10.129 até 200.168.10.190	200.168.10.191 (difusão)
+	4º = Rede 200.168.10.192	200.168.10.193 até 200.168.10.154	200.168.10.255 (difusão)
+	
+	A mascara de subrede é consequencia do número binário que representa os 26 bits que definem a rede, portanto:
+	11111111.11111111.11111111.11000000 = 255.255.255.192 (notação decimal)
+	
+    Resposta final:
+	O IP 200.168.10.66/26 pertence à rede 192.168.10.64, broadcast 200.168.10.127, máscara de subrede 255.255.255.192, pode haver 62 hosts efetivamente na rede, e o intervalo compreende os IPs 200.168.10.64 até 200.168.10.127.
+    
+    
 
 
 
