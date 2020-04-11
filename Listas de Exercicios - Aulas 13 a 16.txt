@@ -514,7 +514,7 @@ Solução:
     
     Notando que são possíveis apenas 14 hosts por rede.
     
-    A nova máscara de subrede será 28bits ou seja:
+    A nova máscara de subrede será de 28 bits ou seja:
     11111111.11111111.11111111.11110000 = 255.255.255.240
     
     
@@ -528,14 +528,60 @@ Solução:
     Qual a nova máscara de sub-rede?
     Listar a faixa de endereços de cada sub-rede.
     
+    Solução:
+    
+    
+    Inicialmente, a máscara de subrede indica que o IP fornecido contem 16bits em uso para definição da rede original.
+    Logo, sobram 16bits para divisão entre novas subredes e hosts. Como a divisão é binária, calcula-se o número de bits necessários:
+    1bit:  2¹ = 2 redes
+    2bits: 2² = 4 redes
+    3bits: 2³ = 8 redes
+    4bits: 2⁴ = 16 redes
+    5bits: 2⁵ = 32 redes
+    Então tem-se que a partir de 5 bits é possível definir até 32 subredes, o que atende a demanda de 20 redes exigidas.
+   
+    Considerando-se o uso de 5 bits para definição de subredes, restam 11 bits para definição de hosts, assim os hosts serão definidos em 32 grupos com 2.048 endereços por grupo, divididos da seguinte forma:
+    
+    1º  Rede 	150.100.0.0		150.100.0.1 até 150.100.7.254		150.100.7.255 (broadcast)
+    2º  Rede 	150.100.8.0		150.100.8.1 até 150.100.15.254		150.100.15.255 (broadcast)
+    3º  Rede 	150.100.16.0		150.100.16.1 até 150.100.23.254		150.100.23.255 (broadcast)
+    4º  Rede 	150.100.24.0		150.100.24.1 até 150.100.31.254		150.100.31.255 (broadcast)
+    5º  Rede 	150.100.32.0		150.100.32.1 até 150.100.39.254		150.100.39.255 (broadcast)
+    6º  Rede 	150.100.40.0		150.100.40.1 até 150.100.47.254		150.100.47.255 (broadcast)
+    7º  Rede 	150.100.48.0		150.100.48.1 até 150.100.55.254		150.100.55.255 (broadcast)
+    8º  Rede 	150.100.56.0		150.100.56.1 até 150.100.63.254		150.100.63.255 (broadcast)
+    9º  Rede 	150.100.64.0		150.100.64.1 até 150.100.71.254		150.100.71.255 (broadcast)
+    10º Rede 	150.100.72.0		150.100.72.1 até 150.100.79.254		150.100.79.255 (broadcast)
+    11º Rede 	150.100.80.0		150.100.80.1 até 150.100.87.254		150.100.87.255 (broadcast)
+    12º Rede 	150.100.88.0		150.100.88.1 até 150.100.95.254		150.100.95.255 (broadcast)
+    13º Rede 	150.100.96.0		150.100.96.1 até 150.100.103.254	150.100.103.255 (broadcast)
+    14º Rede 	150.100.104.0		150.100.104.1 até 150.100.111.254	150.100.111.255 (broadcast)
+    15º Rede 	150.100.112.0		150.100.112.1 até 150.100.119.254	150.100.119.255 (broadcast)
+    16º Rede 	150.100.120.0		150.100.120.1 até 150.100.127.254	150.100.127.255 (broadcast)
+    17º Rede 	150.100.128.0		150.100.128.1 até 150.100.135.254	150.100.135.255 (broadcast)
+    18º Rede 	150.100.136.0		150.100.136.1 até 150.100.143.254	150.100.143.255 (broadcast)
+    19º Rede 	150.100.144.0		150.100.144.1 até 150.100.151.254	150.100.151.255 (broadcast)
+    20º Rede 	150.100.152.0		150.100.152.1 até 150.100.159.254	150.100.159.255 (broadcast)
+    21º Rede 	150.100.160.0		150.100.160.1 até 150.100.167.254	150.100.167.255 (broadcast)
+    22º Rede 	150.100.168.0		150.100.168.1 até 150.100.175.254	150.100.175.255 (broadcast)
+    23º Rede 	150.100.176.0		150.100.176.1 até 150.100.183.254	150.100.183.255 (broadcast)
+    24º Rede 	150.100.184.0		150.100.184.1 até 150.100.191.254	150.100.191.255 (broadcast)
+    25º Rede 	150.100.192.0		150.100.192.1 até 150.100.199.254	150.100.199.255 (broadcast)
+    26º Rede 	150.100.200.0		150.100.200.1 até 150.100.207.254	150.100.207.255 (broadcast)
+    27º Rede 	150.100.208.0		150.100.208.1 até 150.100.215.254	150.100.215.255 (broadcast)
+    28º Rede 	150.100.216.0		150.100.216.1 até 150.100.223.254	150.100.223.255 (broadcast)
+    29º Rede 	150.100.224.0		150.100.224.1 até 150.100.231.254	150.100.231.255 (broadcast)
+    30º Rede 	150.100.232.0		150.100.232.1 até 150.100.239.254	150.100.239.255 (broadcast)
+    31º Rede 	150.100.240.0		150.100.240.1 até 150.100.247.254	150.100.247.255 (broadcast)
+    32º Rede 	150.100.248.0		150.100.248.1 até 150.100.255.254	150.100.255.255 (broadcast)
+    
+    Notando que são possíveis apenas 2046 hosts por rede.
+    
+    A nova máscara de subrede será de 21 bits ou seja:
+    11111111.11111111.11111000.00000000 = 255.255.248.0    
     
     
     
-    
-    
-    
-    
-
 
 
 5) Enviar as fotos dos exercícios também. De preferências, enviar todas as fotos de uma só vez, ao finalizarem o estudo desses conteúdos. Se não conseguirem enviar pelo aqui pelo SIGAA pode enviar por e-mail.
