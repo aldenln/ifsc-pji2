@@ -456,22 +456,83 @@ drwxr-xr-x 2 aluno aluno 4096 abr 10 19:14 videos
     Solução:
 
     	200.168.010.066/26
-    	 8 + 8 + 8 + 2 = 26 bits da rede e 6 bits restantes para endereço de host
+    	 8 + 8 + 8 + 2 = 26 bits da rede e 6 bits restantes para endereço de host, totalizando 32bits.
     
     	Logo: os últimos 8bits são divididos em 2bits de rede (2² = 4 redes) e 6bits de host (2⁶ = 64 hosts)
     	O decimal de 8bits = 2⁸ = 256; Considerando que o primeiro valor é 0 então o último valor é 255.
-	
-	assim as rede e endereços ficam divididos em 4 conjuntos:
+	Assim as rede e endereços ficam divididos em 4 conjuntos:
 	1º = Rede 200.168.10.0		200.168.10.1 até 200.168.10.62		200.168.10.63 (difusão) 
 	2º = Rede 200.168.10.64		200.168.10.65 até 200.168.10.126	200.168.10.127 (difusão)
 	3º = Rede 200.168.10.128	200.168.10.129 até 200.168.10.190	200.168.10.191 (difusão)
-	4º = Rede 200.168.10.192	200.168.10.193 até 200.168.10.154	200.168.10.255 (difusão)
+	4º = Rede 200.168.10.192	200.168.10.193 até 200.168.10.254	200.168.10.255 (difusão)
 	
-	A mascara de subrede é consequencia do número binário que representa os 26 bits que definem a rede, portanto:
+	A máscara de subrede é consequência do número binário que representa os 26 bits que definem as possíveis redes, portanto:
 	11111111.11111111.11111111.11000000 = 255.255.255.192 (notação decimal)
 	
     Resposta final:
-	O IP 200.168.10.66/26 pertence à rede 192.168.10.64, broadcast 200.168.10.127, máscara de subrede 255.255.255.192, pode haver 62 hosts efetivamente na rede, e o intervalo compreende os IPs 200.168.10.64 até 200.168.10.127.
+	O IP 200.168.10.66/26 pertence à rede 192.168.10.64, broadcast 200.168.10.127, máscara de subrede 255.255.255.192, pode haver 62 hosts efetivamente na rede, e o intervalo compreende os IPs 200.168.10.65 até 200.168.10.126.
+ 
+ 
+---------------------------------------------------------------------------------------------------
+
+
+2.Dividir a seguinte rede classe C: 229.45.32.0/255.255.255.0. São necessárias, pelo menos, 10 sub-redes. Determinar o seguinte:
+
+    Quantos bits serão necessários para fazer a divisão e obter pelo menos 10 sub-redes?
+    Quantos números IP (hosts) estarão disponíveis em cada sub-rede?
+    Qual a nova máscara de sub-rede?
+    Listar a faixa de endereços de cada sub-rede.
+
+Solução:
+    
+    
+    Inicialmente, a máscara de subrede indica que o IP fornecido contem 24bits em uso para definição da rede original.
+    Logo, sobram 8bits para divisão entre novas subredes e hosts. Como a divisão é binária, calcula-se o número de bits necessários:
+    1bit:  2¹ = 2 redes
+    2bits: 2² = 4 redes
+    3bits: 2³ = 8 redes
+    4bits: 2⁴ = 16 redes
+    Então tem-se que a partir de 4 bits é possível definir até 16 subredes, o que atende a demanda de 10 redes exigidas.
+    
+    Considerando-se o uso de 4 bits para definição de subredes, restam 4 bits para definição de hosts, assim os hosts serão definidos em 16 grupos com 16 endereços por grupo, divididos da seguinte forma:
+    1º  Rede 	229.45.32.0		229.45.32.1 até 229.45.32.14		229.45.32.15 (broadcast)
+    2º  Rede 	229.45.32.16		229.45.32.17 até 229.45.32.30		229.45.32.31 (broadcast)
+    3º  Rede 	229.45.32.32		229.45.32.33 até 229.45.32.46		229.45.32.47 (broadcast)
+    4º  Rede 	229.45.32.48		229.45.32.49 até 229.45.32.62		229.45.32.63 (broadcast)
+    5º  Rede 	229.45.32.64		229.45.32.65 até 229.45.32.78		229.45.32.79 (broadcast)
+    6º  Rede 	229.45.32.80		229.45.32.81 até 229.45.32.94		229.45.32.95 (broadcast)
+    7º  Rede 	229.45.32.96		229.45.32.97 até 229.45.32.110		229.45.32.111 (broadcast)
+    8º  Rede 	229.45.32.112		229.45.32.113 até 229.45.32.126		229.45.32.127 (broadcast)
+    9º  Rede 	229.45.32.128		229.45.32.129 até 229.45.32.142		229.45.32.143 (broadcast)
+    10º Rede 	229.45.32.144		229.45.32.145 até 229.45.32.158		229.45.32.159 (broadcast)
+    11º Rede 	229.45.32.160		229.45.32.161 até 229.45.32.174		229.45.32.175 (broadcast)
+    12º Rede 	229.45.32.176		229.45.32.177 até 229.45.32.190		229.45.32.191 (broadcast)
+    13º Rede 	229.45.32.192		229.45.32.193 até 229.45.32.206		229.45.32.207 (broadcast)
+    14º Rede 	229.45.32.208		229.45.32.209 até 229.45.32.222		229.45.32.223 (broadcast)
+    15º Rede	229.45.32.224		229.45.32.225 até 229.45.32.238		229.45.32.239 (broadcast)
+    16º Rede 	229.45.32.240		229.45.32.241 até 229.45.32.254		229.45.32.255 (broadcast)
+    
+    Notando que são possíveis apenas 14 hosts por rede.
+    
+    A nova máscara de subrede será 28bits ou seja:
+    11111111.11111111.11111111.11110000 = 255.255.255.240
+    
+    
+---------------------------------------------------------------------------------------------------
+
+
+3.Dividir a seguinte rede classe B: 150.100.0.0/255.255.0.0. São necessárias, pelo menos, 20 sub-redes. Determinar o seguinte:
+
+    Quantos bits serão necessários para fazer a divisão e obter pelo menos 20 sub-redes?
+    Quantos números IP (hosts) estarão disponíveis em cada sub-rede?
+    Qual a nova máscara de sub-rede?
+    Listar a faixa de endereços de cada sub-rede.
+    
+    
+    
+    
+    
+    
     
     
 
