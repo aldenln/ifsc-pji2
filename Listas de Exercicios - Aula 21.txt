@@ -1,0 +1,19 @@
+1. Crie um servidor FTP sem acesso anônimo e com as seguintes características:
+
+
+   - O diretório de acesso de todos os usuários deve ser /srv/ftp/dados
+   - O grupo de acesso dos usuários do servidor FTP deve ser ftpgroup
+   - Deve ser criado um usuário chamado ftp, sem acesso ao terminal, e acesso somente ao diretório /srv/ftp/dados, para o acesso ao servidor FTP
+   - O usuário aluno também deve ter acesso ao servidor FTP no diretório /srv/ftp/dados.
+
+
+2. No gFTP, vamos fazer um acesso anônimo ao servidor público FTP da Unicamp.
+
+   - Crie uma pasta FTP dentro do seu diretório /home/aluno.
+   - No campo máquina, coloque o seguinte endereço: ftp ftp.unicamp.br
+
+   - Navegue até a pasta pub/eclipse/eclipse.
+   - Faça o download do arquivo default_style.c.
+   - Faça o download dos arquivos terminados em html.
+   - Confira se os downloads foram bem sucedidos.
+   - Encerre a conexão FTP.
