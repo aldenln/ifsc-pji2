@@ -32,24 +32,51 @@ RequireValidShell off
 MaxInstances 10
 Group ftpgroup
 
+
+
 -usuario e pasta:
+
 --o instalador instalou automaticamente os seguites usuarios:
 
 proftpd:x:122:65534::/run/proftpd:/usr/sbin/nologin
 ftp:x:123:65534::/srv/ftp:/usr/sbin/nologin
 
+
 --criando a pasta raiz ftp
 aluno@aluno-VirtualBox:~$ sudo mkdir /srv/ftp/dados
+
+aluno@aluno-VirtualBox:~$ ls -lu /srv/ftp/
+total 8
+drwxr-xr-x 2 root ftpgroup 4096 jun  6 00:02 dados
+-rw-r--r-- 1 root root      170 jun  5 21:08 welcome.msg
+aluno@aluno-VirtualBox:~$
+
 
 --criando o grupo ftpgroup
 aluno@aluno-VirtualBox:~$ sudo groupadd ftpgroup
 
+ftpgroup:x:1001:
+
+
+
 --atribuido grupo dono a pasta raiz
 aluno@aluno-VirtualBox:~$ sudo chgrp ftpgroup /srv/ftp/dados
+
+aluno@aluno-VirtualBox:~$ ls -lu /srv/ftp/
+total 8
+drwxr-xr-x 2 root ftpgroup 4096 jun  6 00:02 dados
+-rw-r--r-- 1 root root      170 jun  5 21:08 welcome.msg
+aluno@aluno-VirtualBox:~$
+
 
 --atribuido grupo secundario aos usuarios ftp e aluno
 aluno@aluno-VirtualBox:~$ sudo usermod -G ftpgroup ftp
 aluno@aluno-VirtualBox:~$ sudo usermod -G ftpgroup aluno
+
+--resetando o servidor ftp para aplicar as configurações
+aluno@aluno-VirtualBox:~$ sudo /etc/init.d/proftpd restart 
+[ ok ] Restarting proftpd (via systemctl): proftpd.service.
+aluno@aluno-VirtualBox:~$ 
 
 
 
