@@ -27,10 +27,10 @@ aluno@aluno-VirtualBox:~$ sudo vi /etc/proftpd/proftpd.conf
 UseIPv6 OFF
 ServerName "PJI2"
 AllowForeignAddress on 
-DefaultRoot ~
+DefaultRoot /srv/ftp/dados
 RequireValidShell off
 MaxInstances 10
-Group ftpgroup
+User proftpd
 
 
 
@@ -47,7 +47,7 @@ aluno@aluno-VirtualBox:~$ sudo mkdir /srv/ftp/dados
 
 aluno@aluno-VirtualBox:~$ ls -lu /srv/ftp/
 total 8
-drwxr-xr-x 2 root ftpgroup 4096 jun  6 00:02 dados
+drwxr-xr-x 2 root root 4096 jun  6 00:02 dados
 -rw-r--r-- 1 root root      170 jun  5 21:08 welcome.msg
 aluno@aluno-VirtualBox:~$
 
@@ -55,23 +55,45 @@ aluno@aluno-VirtualBox:~$
 --criando o grupo ftpgroup
 aluno@aluno-VirtualBox:~$ sudo groupadd ftpgroup
 
+aluno@aluno-VirtualBox:~$ cat /etc/group
+(...)
 ftpgroup:x:1001:
 
 
 
---atribuido grupo dono a pasta raiz
+--atribuindo grupo dono a pasta raiz e permissoes de leitura e gravaçao
 aluno@aluno-VirtualBox:~$ sudo chgrp ftpgroup /srv/ftp/dados
+aluno@aluno-VirtualBox:~$ sudo chmod g+rw /srv/ftp/dados/
 
 aluno@aluno-VirtualBox:~$ ls -lu /srv/ftp/
 total 8
-drwxr-xr-x 2 root ftpgroup 4096 jun  6 00:02 dados
+drwxrwxr-x 2 root ftpgroup 4096 jun  6 00:57 dados
 -rw-r--r-- 1 root root      170 jun  5 21:08 welcome.msg
-aluno@aluno-VirtualBox:~$
+aluno@aluno-VirtualBox:~$ 
 
 
---atribuido grupo secundario aos usuarios ftp e aluno
+--atribuindo grupo secundario aos usuarios ftp e aluno
 aluno@aluno-VirtualBox:~$ sudo usermod -G ftpgroup ftp
 aluno@aluno-VirtualBox:~$ sudo usermod -G ftpgroup aluno
+
+aluno@aluno-VirtualBox:~$ cat /etc/group
+(...)
+ftpgroup:x:1001:ftp,aluno
+
+aluno@aluno-VirtualBox:~$ cat /etc/passwd
+(...)
+proftpd:x:122:65534::/run/proftpd:/usr/sbin/nologin
+ftp:x:123:65534::/srv/ftp/dados:/usr/sbin/nologin
+
+
+--definir senha para user ftp
+
+aluno@aluno-VirtualBox:~$ sudo passwd ftp
+Digite a nova senha UNIX: ftp123
+Redigite a nova senha UNIX: ftp123
+passwd: senha atualizada com sucesso
+aluno@aluno-VirtualBox:~$ 
+
 
 --resetando o servidor ftp para aplicar as configurações
 aluno@aluno-VirtualBox:~$ sudo /etc/init.d/proftpd restart 
@@ -79,22 +101,158 @@ aluno@aluno-VirtualBox:~$ sudo /etc/init.d/proftpd restart
 aluno@aluno-VirtualBox:~$ 
 
 
+--TESTANDO--
+Foi usado o gftp e na maquina local (VM) funcionou, apartir do hospedeiro da VM está inacessivel devido ao firewall.
 
-
-
-
-
-
+Testes:
+Conexao de ambos usuários (ftp, aluno) com autenticação ok
+Acesso as pastas, apenas pasta raiz /srv/ftp/dados, sem acesso a niveis acima ok
+Leitura, Gravação, Remoção ok
 
 
 
 2. No gFTP, vamos fazer um acesso anônimo ao servidor público FTP da Unicamp.
 
    - Crie uma pasta FTP dentro do seu diretório /home/aluno.
+   
+   	aluno@aluno-VirtualBox:~$ mkdir /home/aluno/FTP
+
+   
    - No campo máquina, coloque o seguinte endereço: ftp ftp.unicamp.br
 
    - Navegue até a pasta pub/eclipse/eclipse.
    - Faça o download do arquivo default_style.c.
+   
+Procurando ftp.unicamp.br
+Tentando ftp.unicamp.br:21
+Conectado a ftp.unicamp.br:21
+220  FtpServer da Unicamp
+USER anonymous
+
+331 Anonymous login ok, send your complete email address as your password
+PASS xxxx
+230 Anonymous access granted, restrictions apply
+SYST
+
+215 UNIX Type: L8
+TYPE I
+
+200 Type set to I
+CWD /
+
+250 CWD command successful
+PWD
+
+257 "/" is the current directory
+Carregando lista do diretório / do servidor (LC_TIME=pt_BR.UTF-8)
+PASV
+
+227 Entering Passive Mode (143,106,10,149,131,176).
+LIST -aL
+
+150 Opening BINARY mode data connection for file list
+226 Transfer complete
+Diretório local alterado com sucesso para /home
+Diretório local alterado com sucesso para /home/aluno
+Diretório local alterado com sucesso para /home/aluno/FTP
+CWD /pub
+
+250 CWD command successful
+PWD
+
+257 "/pub" is the current directory
+Carregando lista do diretório /pub do servidor (LC_TIME=pt_BR.UTF-8)
+PASV
+
+227 Entering Passive Mode (143,106,10,149,152,53).
+LIST -aL
+
+150 Opening BINARY mode data connection for file list
+226 Transfer complete
+CWD /pub/eclipse
+
+250 CWD command successful
+PWD
+
+257 "/pub5/eclipse" is the current directory
+Carregando lista do diretório /pub5/eclipse do servidor (LC_TIME=pt_BR.UTF-8)
+PASV
+
+227 Entering Passive Mode (143,106,10,149,142,198).
+LIST -aL
+
+150 Opening BINARY mode data connection for file list
+226 Transfer complete
+CWD /pub5/eclipse/eclipse
+
+250 CWD command successful
+PWD
+
+257 "/pub5/eclipse/eclipse" is the current directory
+Carregando lista do diretório /pub5/eclipse/eclipse do servidor (LC_TIME=pt_BR.UTF-8)
+PASV
+
+227 Entering Passive Mode (143,106,10,149,172,58).
+LIST -aL
+
+150 Opening BINARY mode data connection for file list
+226 Transfer complete
+Diretório local alterado com sucesso para /home/aluno/FTP
+PASV
+
+227 Entering Passive Mode (143,106,10,149,168,204).
+RETR /pub5/eclipse/eclipse/default_style.css
+
+150 Opening BINARY mode data connection for /pub5/eclipse/eclipse/default_style.css (1173 bytes)
+226 Transfer complete
+/pub5/eclipse/eclipse/default_style.css transferido com sucesso a 23,54 KB/s
+Modo de /home/aluno/FTP/default_style.css alterado com sucesso para 755
+Marca de tempo alterada com sucesso para /home/aluno/FTP/default_style.css
+   
+   
+   
    - Faça o download dos arquivos terminados em html.
+   
+RETR /pub5/eclipse/eclipse/banner.html
+
+150 Opening BINARY mode data connection for /pub5/eclipse/eclipse/banner.html (1581 bytes)
+226 Transfer complete
+/pub5/eclipse/eclipse/banner.html transferido com sucesso a 25,15 KB/s
+Modo de /home/aluno/FTP/banner.html alterado com sucesso para 755
+Marca de tempo alterada com sucesso para /home/aluno/FTP/banner.html
+Diretório local alterado com sucesso para /home/aluno/FTP
+PASV
+
+227 Entering Passive Mode (143,106,10,149,176,58).
+RETR /pub5/eclipse/eclipse/home_nav.html
+
+150 Opening BINARY mode data connection for /pub5/eclipse/eclipse/home_nav.html (2954 bytes)
+226 Transfer complete
+/pub5/eclipse/eclipse/home_nav.html transferido com sucesso a 38,47 KB/s
+Modo de /home/aluno/FTP/home_nav.html alterado com sucesso para 755
+Marca de tempo alterada com sucesso para /home/aluno/FTP/home_nav.html
+Diretório local alterado com sucesso para /home/aluno/FTP
+PASV
+
+227 Entering Passive Mode (143,106,10,149,175,156).
+RETR /pub5/eclipse/eclipse/index.html
+
+150 Opening BINARY mode data connection for /pub5/eclipse/eclipse/index.html (56 bytes)
+226 Transfer complete
+/pub5/eclipse/eclipse/index.html transferido com sucesso a 21,84 KB/s
+Modo de /home/aluno/FTP/index.html alterado com sucesso para 755
+Marca de tempo alterada com sucesso para /home/aluno/FTP/index.html
+   
+   
+   
    - Confira se os downloads foram bem sucedidos.
+   
+   ok
+   
+   
+   
    - Encerre a conexão FTP.
+   
+   ok
+   
+   
