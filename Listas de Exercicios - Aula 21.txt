@@ -33,10 +33,29 @@ MaxInstances 10
 Group ftpgroup
 
 -usuario e pasta:
-o instalador instalou automaticamente os seguites usuarios:
+--o instalador instalou automaticamente os seguites usuarios:
 
 proftpd:x:122:65534::/run/proftpd:/usr/sbin/nologin
 ftp:x:123:65534::/srv/ftp:/usr/sbin/nologin
+
+--criando a pasta raiz ftp
+aluno@aluno-VirtualBox:~$ sudo mkdir /srv/ftp/dados
+
+--criando o grupo ftpgroup
+aluno@aluno-VirtualBox:~$ sudo groupadd ftpgroup
+
+--atribuido grupo dono a pasta raiz
+aluno@aluno-VirtualBox:~$ sudo chgrp ftpgroup /srv/ftp/dados
+
+--atribuido grupo secundario aos usuarios ftp e aluno
+aluno@aluno-VirtualBox:~$ sudo usermod -G ftpgroup ftp
+aluno@aluno-VirtualBox:~$ sudo usermod -G ftpgroup aluno
+
+
+
+
+
+
 
 
 
