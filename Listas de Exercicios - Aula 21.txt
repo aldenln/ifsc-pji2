@@ -21,6 +21,24 @@ aluno@aluno-VirtualBox:~$
 
 --CONFIGURAÇÃO--
 
+aluno@aluno-VirtualBox:~$ sudo vi /etc/proftpd/proftpd.conf
+
+-modificações:
+UseIPv6 OFF
+ServerName "PJI2"
+AllowForeignAddress on 
+DefaultRoot ~
+RequireValidShell off
+MaxInstances 10
+Group ftpgroup
+
+-usuario e pasta:
+o instalador instalou automaticamente os seguites usuarios:
+
+proftpd:x:122:65534::/run/proftpd:/usr/sbin/nologin
+ftp:x:123:65534::/srv/ftp:/usr/sbin/nologin
+
+
 
 
 
