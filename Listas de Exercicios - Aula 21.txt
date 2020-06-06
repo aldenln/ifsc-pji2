@@ -249,6 +249,14 @@ Marca de tempo alterada com sucesso para /home/aluno/FTP/index.html
    
    ok
    
+aluno@aluno-VirtualBox:~$ ls -lu /home/aluno/FTP
+total 16
+-rwxr-xr-x 1 aluno aluno 1581 ago 18  2013 banner.html
+-rwxr-xr-x 1 aluno aluno 1173 ago 21  2013 default_style.css
+-rwxr-xr-x 1 aluno aluno 2954 ago 18  2013 home_nav.html
+-rwxr-xr-x 1 aluno aluno   56 ago 18  2013 index.html
+aluno@aluno-VirtualBox:~$ 
+
    
    
    - Encerre a conexão FTP.
